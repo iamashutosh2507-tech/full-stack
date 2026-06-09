@@ -1,3 +1,5 @@
+import TaskCard from "./TaskCard"
+
 export interface Task {
   id: string | number
   title: string
@@ -18,5 +20,23 @@ interface TaskListProps {
 }
 
 export default function TaskList(_props: TaskListProps) {
-  return <section id="task-list" />
+  return <section id="task-list" >
+    <TaskCard
+        title="Task One"
+        description="First hardcoded task"
+        priority="High"
+      />
+
+      <TaskCard
+        title="Task Two"
+        description="Second hardcoded task"
+        priority="Medium"
+      />
+
+      <TaskCard
+        title="Task Three"
+        description="Third hardcoded task"
+        priority="Low"
+      />
+    </section>
 }
