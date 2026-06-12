@@ -1,39 +1,62 @@
-import TaskCard from './TaskCard'
+import TaskCard from "./TaskCard";
 
 export interface Task {
-  id: string | number
-  title: string
-  description: string
-  priority: string
-  completed: boolean
-  category?: string
-  tags?: string[]
-  dueDate?: string | number
+  id: string | number;
+  title: string;
+  description: string;
+  priority: string;
+  completed: boolean;
 }
+
+const HARDCODED_TASKS: Task[] = [
+  {
+    id: 1,
+    title: "Task One",
+    description: "Complete first task",
+    priority: "High",
+    completed: false,
+  },
+  {
+    id: 2,
+    title: "Task Two",
+    description: "Complete second task",
+    priority: "Medium",
+    completed: false,
+  },
+  {
+    id: 3,
+    title: "Task Three",
+    description: "Complete third task",
+    priority: "Low",
+    completed: false,
+  },
+];
 
 interface TaskListProps {
-  tasks?: Task[]
-  countText?: string
-  onToggle?: (id: string | number) => void
-  onDelete?: (id: string | number) => void
-  linkToTaskDetail?: boolean
+  tasks?: Task[];
+  countText?: string;
+  onToggle?: (id: string | number) => void;
+  onDelete?: (id: string | number) => void;
 }
 
-const hardcodedTasks: Task[] = [
-  { id: 1, title: 'Task One', description: 'First hardcoded task', priority: 'Priority: High', completed: false },
-  { id: 2, title: 'Task Two', description: 'Second hardcoded task', priority: 'Priority: Medium', completed: false },
-  { id: 3, title: 'Task Three', description: 'Third hardcoded task', priority: 'Priority: Low', completed: false },
-]
-
-export default function TaskList({ tasks, countText, onToggle, onDelete }: TaskListProps) {
-  const displayTasks = tasks !== undefined ? tasks : hardcodedTasks
+export default function TaskList({
+  tasks,
+  countText,
+  onToggle,
+  onDelete,
+}: TaskListProps) {
+  const list = tasks ?? HARDCODED_TASKS;
 
   return (
     <section id="task-list">
-      {countText && <p id="task-count">{countText}</p>}
-      {displayTasks.map(task => (
+      {countText && (
+        <h2 id="task-count">{countText}</h2>
+      )}
+
+      {list.map((task) => (
         <TaskCard
           key={task.id}
+          id={task.id}
           taskId={task.id}
           title={task.title}
           description={task.description}
@@ -44,5 +67,5 @@ export default function TaskList({ tasks, countText, onToggle, onDelete }: TaskL
         />
       ))}
     </section>
-  )
+  );
 }
