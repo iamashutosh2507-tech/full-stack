@@ -1,27 +1,38 @@
-import type { Dispatch, SetStateAction } from "react";
 import TaskList from "./TaskList";
+import TaskForm from "./TaskForm";
 import type { Task } from "./TaskList";
 
 interface TaskAppProps {
-  tasks?: Task[];
-  setTasks?: Dispatch<SetStateAction<Task[]>>;
+  tasks: Task[];
+  setTasks?: React.Dispatch<React.SetStateAction<Task[]>>;
   showForm?: boolean;
-  countFormat?: string;
 }
 
 export default function TaskApp({
   tasks,
+  setTasks,
+  showForm,
 }: TaskAppProps) {
-  const countText = `${tasks?.length ?? 0} Tasks`;
+  function handleAddTask(task: Task) {
+    if (setTasks) {
+      setTasks((prev) => [...prev, task]);
+    }
+  }
 
   return (
     <div>
-      <h2 id="task-count">{countText}</h2>
+      {showForm && (
+        <TaskForm onAddTask={handleAddTask} />
+      )}
+
+      <h2 id="task-count">
+        {tasks.length} Tasks
+      </h2>
 
       <TaskList
-       tasks={tasks}
-       countText={`${tasks?.length ?? 0} Tasks`}
-       />
+        tasks={tasks}
+        countText={`${tasks.length} Tasks`}
+      />
     </div>
   );
 }
