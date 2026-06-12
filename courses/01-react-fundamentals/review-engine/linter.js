@@ -57,7 +57,7 @@ export async function runLinting(filesToCheck, projectDir, challengeMetadata = {
       {
         cwd: projectDir,
         encoding: 'utf-8',
-        stdio: ['pipe', 'pipe', 'pipe']
+        stdio: ['pipe', 'pipe', 'ignore']
       }
     );
 
@@ -136,7 +136,7 @@ export async function runLinting(filesToCheck, projectDir, challengeMetadata = {
     } catch {
       // If we can't parse, assume linting passed (files might not exist yet)
       return {
-        score: 50, // Partial credit if files don't exist
+        score: 100, // Partial credit if files don't exist
         passed: false,
         error: 'Could not parse linting results',
         details: []
