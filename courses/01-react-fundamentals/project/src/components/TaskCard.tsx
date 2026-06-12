@@ -9,34 +9,70 @@ interface TaskCardProps {
   id?: string | number
 }
 
-export default function TaskCard({ title, description, priority, completed, onToggle, onDelete, taskId, id }: TaskCardProps) {
+export default function TaskCard({
+  title,
+  description,
+  priority,
+  completed,
+  onToggle,
+  onDelete,
+  taskId,
+  id,
+}: TaskCardProps) {
   const resolvedId = taskId ?? id ?? 0
-  const priorityLabel = priority
-    ? priority.startsWith('Priority:') ? priority : `Priority: ${priority}`
-    : ''
-
-  function handleDelete() {
-    if (onDelete && window.confirm('Delete this task?')) {
-      onDelete(resolvedId)
-    }
-  }
 
   return (
-    <article id="task-card" data-completed={completed ? 'true' : undefined}>
+    <article
+      id="task-card"
+      data-completed={completed ? "true" : undefined}
+      style={{
+        background: completed ? "#e6ffe6" : undefined,
+        padding: "10px",
+        marginBottom: "10px",
+      }}
+    >
       {onToggle && (
         <input
           type="checkbox"
           checked={!!completed}
           onChange={() => onToggle(resolvedId)}
-          aria-label={`Toggle ${title}`}
         />
       )}
-      <h2 style={completed ? { textDecoration: 'line-through' } : undefined}>{title}</h2>
-      <p>{description}</p>
-      <p>{priorityLabel}</p>
+
+      <h2
+        style={
+          completed
+            ? { textDecoration: "line-through" }
+            : undefined
+        }
+      >
+        {title}
+      </h2>
+
+      <p
+        style={
+          completed
+            ? { textDecoration: "line-through" }
+            : undefined
+        }
+      >
+        {description}
+      </p>
+
+      <p>Priority: {priority}</p>
+
       {onDelete && (
-        <button onClick={handleDelete}>Delete</button>
-      )}
+  <button
+    type="button"
+    onClick={() => {
+      if (window.confirm("Are you sure you want to delete this task?")) {
+        onDelete(resolvedId)
+      }
+    }}
+  >
+    Delete
+  </button>
+)}
     </article>
   )
 }

@@ -43,6 +43,7 @@ export default function TaskForm({ onAddTask }: TaskFormProps) {
 
   return (
     <form onSubmit={handleSubmit}>
+      <label htmlFor="task-title">Title</label>
       <input
         id="task-title"
         type="text"
@@ -51,13 +52,17 @@ export default function TaskForm({ onAddTask }: TaskFormProps) {
         onChange={(e) => setTitle(e.target.value)}
       />
 
+      <label htmlFor="task-description">Description</label>
       <textarea
+        id="task-description"
         placeholder="Description"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
       />
 
+      <label htmlFor="task-priority">Priority</label>
       <select
+        id="task-priority"
         value={priority}
         onChange={(e) => setPriority(e.target.value)}
       >
@@ -66,13 +71,9 @@ export default function TaskForm({ onAddTask }: TaskFormProps) {
         <option value="High">High</option>
       </select>
 
-      {error && (
-        <p id="task-form-error">{error}</p>
-      )}
+      {error && <p id="task-form-error">{error}</p>}
 
-      <button type="submit">
-        Add Task
-      </button>
+      <button type="submit">Add Task</button>
     </form>
   );
 }
