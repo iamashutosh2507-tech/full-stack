@@ -1,26 +1,29 @@
-import TaskList from "./TaskList"
-import TaskForm from "./TaskForm"
-import type { Task } from "./TaskList"
+
+import TaskList from "./TaskList";
+import TaskForm from "./TaskForm";
+import type { Task } from "./TaskList";
 
 interface TaskAppProps {
-  tasks: Task[]
-  setTasks?: React.Dispatch<React.SetStateAction<Task[]>>
-  showForm?: boolean
+  tasks: Task[];
+  setTasks?: React.Dispatch<React.SetStateAction<Task[]>>;
+  showForm?: boolean;
+  onDelete?: (id: string | number) => void;
 }
 
 export default function TaskApp({
   tasks,
   setTasks,
   showForm,
+  onDelete,
 }: TaskAppProps) {
   function handleAddTask(task: Task) {
     if (setTasks) {
-      setTasks((prev) => [...prev, task])
+      setTasks((prev) => [...prev, task]);
     }
   }
 
   function handleToggle(id: string | number) {
-    if (!setTasks) return
+    if (!setTasks) return;
 
     setTasks((prev) =>
       prev.map((task) =>
@@ -31,12 +34,8 @@ export default function TaskApp({
             }
           : task
       )
-    )
+    );
   }
-
-  const completedCount = tasks.filter(
-    (t) => t.completed
-  ).length
 
   return (
     <div>
@@ -47,8 +46,10 @@ export default function TaskApp({
       <TaskList
         tasks={tasks}
         onToggle={handleToggle}
-        countText={`${completedCount} of ${tasks.length} completed`}
+        onDelete={onDelete}
+        countText={`${tasks.length} Tasks`}
       />
     </div>
-  )
+  );
 }
+
