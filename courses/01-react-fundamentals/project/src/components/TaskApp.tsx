@@ -1,6 +1,8 @@
 
+import { useState } from "react";
 import TaskList from "./TaskList";
 import TaskForm from "./TaskForm";
+import FilterBar from "./FilterBar";
 import type { Task } from "./TaskList";
 
 interface TaskAppProps {
@@ -8,6 +10,7 @@ interface TaskAppProps {
   setTasks?: React.Dispatch<React.SetStateAction<Task[]>>;
   showForm?: boolean;
   onDelete?: (id: string | number) => void;
+  showFilterBar?: boolean;
 }
 
 export default function TaskApp({
@@ -15,7 +18,12 @@ export default function TaskApp({
   setTasks,
   showForm,
   onDelete,
+  showFilterBar,
 }: TaskAppProps) {
+  const [filter, setFilter] = useState<
+    "all" | "active" | "completed"
+  >("all");
+
   function handleAddTask(task: Task) {
     if (setTasks) {
       setTasks((prev) => [...prev, task]);
@@ -37,18 +45,42 @@ export default function TaskApp({
     );
   }
 
+  const filteredTasks =
+    filter === "all"
+      ? tasks
+      : filter === "active"
+      ? tasks.filter((t) => !t.completed)
+      : tasks.filter((t) => t.completed);
+
   return (
     <div>
       {showForm && (
         <TaskForm onAddTask={handleAddTask} />
       )}
 
-      <TaskList
-        tasks={tasks}
-        onToggle={handleToggle}
-        onDelete={onDelete}
-        countText={`${tasks.length} Tasks`}
-      />
+      {showFilterBar && (
+        <FilterBar
+          filter={filter}
+          onFilterChange={setFilter}
+        />
+      )}
+
+      <div id="task-count">
+        Showing {filteredTasks.length} of {tasks.length} tasks
+      </div>
+
+      {filteredTasks.length === 0 ? (
+        <div id="filter-empty-message">
+          No tasks match this filter
+        </div>
+      ) : (
+        <TaskList
+          tasks={filteredTasks}
+          onToggle={handleToggle}
+          onDelete={onDelete}
+          countText={`Showing ${filteredTasks.length} of ${tasks.length} tasks`}
+        />
+      )}
     </div>
   );
 }

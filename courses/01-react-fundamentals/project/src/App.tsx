@@ -115,15 +115,17 @@ function AppContent() {
             />
 
             <Route
-              path="/challenge/06-task-filtering"
-              element={
-                <TaskApp
-                  tasks={tasks}
-                  setTasks={setTasks}
-                  showForm
-                />
-              }
-            />
+  path="/challenge/06-task-filtering"
+  element={
+    <TaskApp
+      tasks={tasks}
+      setTasks={setTasks}
+      showForm
+      showFilterBar
+    />
+  }
+/>
+          
 
             <Route
               path="/challenge/21-react-router"
