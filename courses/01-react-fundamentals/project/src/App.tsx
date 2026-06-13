@@ -1,7 +1,4 @@
- 
 
-
-import "./App.tsx";
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ChallengeList from "./components/ChallengeList";
@@ -115,17 +112,28 @@ function AppContent() {
             />
 
             <Route
-  path="/challenge/06-task-filtering"
-  element={
-    <TaskApp
-      tasks={tasks}
-      setTasks={setTasks}
-      showForm
-      showFilterBar
-    />
-  }
-/>
-          
+              path="/challenge/06-task-filtering"
+              element={
+                <TaskApp
+                  tasks={tasks}
+                  setTasks={setTasks}
+                  showForm
+                  showFilterBar
+                />
+              }
+            />
+
+            <Route
+              path="/challenge/07-priority-based-sorting"
+              element={
+                <TaskApp
+                  tasks={tasks}
+                  setTasks={setTasks}
+                  showForm
+                  showFilterBar
+                />
+              }
+            />
 
             <Route
               path="/challenge/21-react-router"
@@ -163,3 +171,4 @@ function App() {
 }
 
 export default App;
+
