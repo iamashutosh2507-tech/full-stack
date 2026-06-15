@@ -1,18 +1,33 @@
-import TaskCard from "./TaskCard"
+
+import TaskCard from "./TaskCard";
 
 export interface Task {
-  id: string | number
-  title: string
-  description: string
-  priority: string
-  completed: boolean
+  id: string | number;
+  title: string;
+  description: string;
+  priority: string;
+  completed: boolean;
 }
 
 interface TaskListProps {
-  tasks?: Task[]
-  countText?: string
-  onToggle?: (id: string | number) => void
-  onDelete?: (id: string | number) => void
+  tasks?: Task[];
+  countText?: string;
+  onToggle?: (id: string | number) => void;
+  onDelete?: (id: string | number) => void;
+
+  onUpdateTask?: (
+    id: string | number,
+    updates: {
+      title: string;
+      description: string;
+      priority: string;
+    }
+  ) => void;
+
+  editingId?: string | number | null;
+  setEditingId?: (
+    id: string | number | null
+  ) => void;
 }
 
 const defaultTasks: Task[] = [
@@ -37,13 +52,16 @@ const defaultTasks: Task[] = [
     priority: "High",
     completed: false,
   },
-]
+];
 
 export default function TaskList({
   tasks = defaultTasks,
   countText,
   onToggle,
   onDelete,
+  onUpdateTask,
+  editingId,
+  setEditingId,
 }: TaskListProps) {
   return (
     <section id="task-list">
@@ -61,8 +79,12 @@ export default function TaskList({
           completed={task.completed}
           onToggle={onToggle}
           onDelete={onDelete}
+          onUpdateTask={onUpdateTask}
+          editingId={editingId}
+          setEditingId={setEditingId}
         />
       ))}
     </section>
-  )
+  );
 }
+
