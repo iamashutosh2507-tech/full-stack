@@ -1,11 +1,11 @@
 {
   "courseId": "01-react-fundamentals",
   "courseName": "React Fundamentals",
-  "lastUpdated": "2026-06-15T05:06:06.805Z",
+  "lastUpdated": "2026-06-15T16:53:21.779Z",
   "totalChallenges": 23,
-  "completedChallenges": 9,
-  "averageScore": 81.7,
-  "completionPercentage": 39.1,
+  "completedChallenges": 10,
+  "averageScore": 81.6,
+  "completionPercentage": 43.5,
   "badgeLevel": "none",
   "challengeResults": [
     {
@@ -61,6 +61,12 @@
       "challengeName": "Search Functionality",
       "score": 80.785,
       "passed": true
+    },
+    {
+      "challengeId": "10-useeffect-local-storage",
+      "challengeName": "useEffect - Local Storage Persistence",
+      "score": 80.035,
+      "passed": true
     }
   ],
   "skillStrengths": [
@@ -72,7 +78,8 @@
     "Task Filtering",
     "Priority-Based Sorting",
     "Task Editing",
-    "Search Functionality"
+    "Search Functionality",
+    "useEffect - Local Storage Persistence"
   ],
   "improvementAreas": []
 }

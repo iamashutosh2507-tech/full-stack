@@ -68,12 +68,12 @@ npm run review -- --challenge=01-static-task-display
 
 ## 📊 Progress Evidence
 
-*Auto-updated when you run review. Last run: 15/6/2026, 10:36:06 am*
+*Auto-updated when you run review. Last run: 15/6/2026, 10:23:21 pm*
 
 | Metric | Value |
 |--------|-------|
-| Challenges completed | 9 / 23 (39.1%) |
-| Average score | 81.7% |
+| Challenges completed | 10 / 23 (43.5%) |
+| Average score | 81.6% |
 
 | Challenge | Skills covered | Status |
 |-----------|----------------|--------|
@@ -86,7 +86,7 @@ npm run review -- --challenge=01-static-task-display
 | Priority-Based Sorting | Array sort, Sort stability, Multiple sort criteria, Select dropdowns | Passed |
 | Task Editing | Inline editing, Conditional rendering, Edit mode state, Controlled inputs, Form handling, State synchronization | Passed |
 | Search Functionality | Text search, Combining filters, String methods, Search UI patterns | Passed |
-| useEffect - Local Storage Persistence | useEffect, Side effects, localStorage, JSON serialization, Effect dependencies | — |
+| useEffect - Local Storage Persistence | useEffect, Side effects, localStorage, JSON serialization, Effect dependencies | Passed |
 | useEffect - Debounced Search | useEffect cleanup, setTimeout, Debouncing, Memory leak prevention | — |
 | Categories and Tags | Complex state, Array fields, Multi-select/tags input, Nested data, Filtering by array membership | — |
 | Due Dates and Sorting | Date handling, Date objects and formatting, Date comparison, Overdue detection | — |
