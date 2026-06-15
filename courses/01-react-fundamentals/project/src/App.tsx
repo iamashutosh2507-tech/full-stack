@@ -134,7 +134,29 @@ function AppContent() {
                 />
               }
             />
+<Route
+  path="/challenge/08-task-editing"
+  element={
+    <TaskApp
+      tasks={tasks}
+      setTasks={setTasks}
+      showForm
+      showFilterBar
+    />
+  }
+/>
 
+<Route
+  path="/challenge/09-search-functionality"
+  element={
+    <TaskApp
+      tasks={tasks}
+      setTasks={setTasks}
+      showForm
+      showFilterBar
+    />
+  }
+/>
             <Route
               path="/challenge/21-react-router"
               element={

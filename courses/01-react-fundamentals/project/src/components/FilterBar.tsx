@@ -6,6 +6,11 @@ interface FilterBarProps {
   onFilterChange: (filter: Filter) => void;
   sortOrder: string;
   onSortChange: (value: string) => void;
+
+  // Challenge 09
+  searchText?: string;
+  onSearchChange?: (value: string) => void;
+  onClearSearch?: () => void;
 }
 
 function FilterBar({
@@ -13,6 +18,9 @@ function FilterBar({
   onFilterChange,
   sortOrder,
   onSortChange,
+  searchText = "",
+  onSearchChange,
+  onClearSearch,
 }: FilterBarProps) {
   return (
     <div id="filter-bar">
@@ -45,16 +53,39 @@ function FilterBar({
         <option value="recent">
           Recently Added
         </option>
+
         <option value="high">
           Priority: High to Low
         </option>
+
         <option value="low">
           Priority: Low to High
         </option>
+
         <option value="alphabetical">
           Alphabetical
         </option>
       </select>
+
+      <input
+        id="search-input"
+        type="text"
+        placeholder="Search tasks..."
+        value={searchText}
+        onChange={(e) =>
+          onSearchChange?.(e.target.value)
+        }
+      />
+
+      {searchText.trim() !== "" && (
+        <button
+          id="clear-search"
+          type="button"
+          onClick={() => onClearSearch?.()}
+        >
+          Clear search
+        </button>
+      )}
     </div>
   );
 }

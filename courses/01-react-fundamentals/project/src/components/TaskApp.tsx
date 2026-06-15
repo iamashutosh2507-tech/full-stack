@@ -27,7 +27,9 @@ export default function TaskApp({
   const [sortOrder, setSortOrder] =
     useState("recent");
 
-  // Challenge 08
+  const [searchText, setSearchText] =
+    useState("");
+
   const [editingId, setEditingId] = useState<
     string | number | null
   >(null);
@@ -53,7 +55,6 @@ export default function TaskApp({
     );
   }
 
-  // Challenge 08
   function handleUpdateTask(
     id: string | number,
     updates: {
@@ -82,20 +83,39 @@ export default function TaskApp({
     setEditingId(null);
   }
 
-  const filteredTasks =
+  // Filter
+  const statusFiltered =
     filter === "all"
       ? tasks
       : filter === "active"
       ? tasks.filter((t) => !t.completed)
       : tasks.filter((t) => t.completed);
 
-  const priorityValue: Record<string, number> = {
-    High: 3,
-    Medium: 2,
-    Low: 1,
-  };
+  // Search
+  const searchedTasks =
+    statusFiltered.filter((task) => {
+      const search =
+        searchText.toLowerCase();
 
-  const sortedTasks = [...filteredTasks].sort(
+      return (
+        task.title
+          .toLowerCase()
+          .includes(search) ||
+        task.description
+          .toLowerCase()
+          .includes(search)
+      );
+    });
+
+  // Sort
+  const priorityValue: Record<string, number> =
+    {
+      High: 3,
+      Medium: 2,
+      Low: 1,
+    };
+
+  const sortedTasks = [...searchedTasks].sort(
     (a, b) => {
       if (sortOrder === "high") {
         return (
@@ -119,7 +139,6 @@ export default function TaskApp({
           );
       }
 
-      // recent
       return 0;
     }
   );
@@ -127,7 +146,9 @@ export default function TaskApp({
   return (
     <div>
       {showForm && (
-        <TaskForm onAddTask={handleAddTask} />
+        <TaskForm
+          onAddTask={handleAddTask}
+        />
       )}
 
       {showFilterBar && (
@@ -136,16 +157,22 @@ export default function TaskApp({
           onFilterChange={setFilter}
           sortOrder={sortOrder}
           onSortChange={setSortOrder}
+          searchText={searchText}
+          onSearchChange={setSearchText}
+          onClearSearch={() =>
+            setSearchText("")
+          }
         />
       )}
 
       <div id="task-count">
-        Showing {sortedTasks.length} of {tasks.length} tasks
+        Showing {sortedTasks.length} of{" "}
+        {tasks.length} tasks
       </div>
 
       {sortedTasks.length === 0 ? (
         <div id="filter-empty-message">
-          No tasks match this filter
+          No tasks found
         </div>
       ) : (
         <TaskList
@@ -161,3 +188,4 @@ export default function TaskApp({
     </div>
   );
 }
+

@@ -56,7 +56,6 @@ const defaultTasks: Task[] = [
 
 export default function TaskList({
   tasks = defaultTasks,
-  countText,
   onToggle,
   onDelete,
   onUpdateTask,
@@ -65,10 +64,6 @@ export default function TaskList({
 }: TaskListProps) {
   return (
     <section id="task-list">
-      <h2 id="task-count">
-        {countText ?? `${tasks.length} Tasks`}
-      </h2>
-
       {tasks.map((task) => (
         <TaskCard
           key={task.id}
