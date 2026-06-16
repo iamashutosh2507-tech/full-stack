@@ -31,4 +31,5 @@ Tests check: tasks have category and tags; category filter works with other filt
 ## Verify
 
 - `npm run dev` → open `/challenge/12-categories-and-tags` → add task with category and tags; filter by category; refresh → data persists.
-- `npm run review -- --challenge=12-categories-and-tags`
+- `     
+`

@@ -7,13 +7,18 @@ interface FilterBarProps {
   sortOrder: string;
   onSortChange: (value: string) => void;
 
-  // Challenge 09
   searchText?: string;
   onSearchChange?: (value: string) => void;
   onClearSearch?: () => void;
 
-  // Challenge 11
   isSearching?: boolean;
+
+  // Challenge 12
+  categoryFilter?: string;
+  onCategoryFilterChange?: (
+    category: string
+  ) => void;
+  categories?: string[];
 }
 
 function FilterBar({
@@ -25,6 +30,9 @@ function FilterBar({
   onSearchChange,
   onClearSearch,
   isSearching = false,
+  categoryFilter = "",
+  onCategoryFilterChange,
+  categories = [],
 }: FilterBarProps) {
   return (
     <div id="filter-bar">
@@ -50,9 +58,34 @@ function FilterBar({
       </button>
 
       <select
+        id="category-filter"
+        value={categoryFilter}
+        onChange={(e) =>
+          onCategoryFilterChange?.(
+            e.target.value
+          )
+        }
+      >
+        <option value="">
+          All categories
+        </option>
+
+        {categories.map((category) => (
+          <option
+            key={category}
+            value={category}
+          >
+            {category}
+          </option>
+        ))}
+      </select>
+
+      <select
         id="sort-order"
         value={sortOrder}
-        onChange={(e) => onSortChange(e.target.value)}
+        onChange={(e) =>
+          onSortChange(e.target.value)
+        }
       >
         <option value="recent">
           Recently Added
@@ -101,4 +134,3 @@ function FilterBar({
 }
 
 export default FilterBar;
-

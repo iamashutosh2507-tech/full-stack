@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import TaskList from "./TaskList";
 import TaskForm from "./TaskForm";
@@ -30,7 +29,9 @@ export default function TaskApp({
   const [searchText, setSearchText] =
     useState("");
 
-  // Challenge 11
+  const [categoryFilter, setCategoryFilter] =
+    useState("");
+
   const [debouncedSearch, setDebouncedSearch] =
     useState("");
 
@@ -38,7 +39,6 @@ export default function TaskApp({
     string | number | null
   >(null);
 
-  // Debounce search
   useEffect(() => {
     const timeout = window.setTimeout(() => {
       setDebouncedSearch(searchText);
@@ -98,7 +98,14 @@ export default function TaskApp({
     setEditingId(null);
   }
 
-  // Filter
+  const categories = [
+    ...new Set(
+      tasks
+        .map((task) => task.category)
+        .filter(Boolean)
+    ),
+  ];
+
   const statusFiltered =
     filter === "all"
       ? tasks
@@ -106,9 +113,17 @@ export default function TaskApp({
       ? tasks.filter((t) => !t.completed)
       : tasks.filter((t) => t.completed);
 
-  // Debounced Search
+  const categoryFiltered =
+    categoryFilter === ""
+      ? statusFiltered
+      : statusFiltered.filter(
+          (task) =>
+            task.category ===
+            categoryFilter
+        );
+
   const searchedTasks =
-    statusFiltered.filter((task) => {
+    categoryFiltered.filter((task) => {
       const search =
         debouncedSearch.toLowerCase();
 
@@ -122,7 +137,6 @@ export default function TaskApp({
       );
     });
 
-  // Sort
   const priorityValue: Record<string, number> =
     {
       High: 3,
@@ -177,6 +191,14 @@ export default function TaskApp({
           onClearSearch={() =>
             setSearchText("")
           }
+          isSearching={
+            searchText !== debouncedSearch
+          }
+          categoryFilter={categoryFilter}
+          onCategoryFilterChange={
+            setCategoryFilter
+          }
+          categories={categories}
         />
       )}
 
