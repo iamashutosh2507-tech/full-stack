@@ -193,6 +193,19 @@ function AppContent() {
     />
   }
 />
+<Route
+  path="/challenge/11-useeffect-debounced-search"
+  element={
+    <TaskApp
+      tasks={tasks}
+      setTasks={setTasks}
+      showForm
+      showFilterBar
+    />
+  }
+/>
+
+
 
 
             <Route

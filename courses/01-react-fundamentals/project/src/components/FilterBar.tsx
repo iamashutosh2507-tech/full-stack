@@ -11,6 +11,9 @@ interface FilterBarProps {
   searchText?: string;
   onSearchChange?: (value: string) => void;
   onClearSearch?: () => void;
+
+  // Challenge 11
+  isSearching?: boolean;
 }
 
 function FilterBar({
@@ -21,6 +24,7 @@ function FilterBar({
   searchText = "",
   onSearchChange,
   onClearSearch,
+  isSearching = false,
 }: FilterBarProps) {
   return (
     <div id="filter-bar">
@@ -76,6 +80,12 @@ function FilterBar({
           onSearchChange?.(e.target.value)
         }
       />
+
+      {isSearching && (
+        <div id="searching-indicator">
+          Searching...
+        </div>
+      )}
 
       {searchText.trim() !== "" && (
         <button
