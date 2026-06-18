@@ -274,5 +274,28 @@
       "maintainability": 80,
       "overall": "The code is well-structured and follows good coding practices. However, there are some areas for improvement, such as more descriptive function names and improved code reusability. With some additional comments and documentation, this code could be even more maintainable and efficient."
     }
+  },
+  {
+    "challengeId": "13-due-dates-and-sorting",
+    "challengeName": "Due Dates and Sorting",
+    "aiReview": {
+      "challengeId": "13-due-dates-and-sorting",
+      "timestamp": "2026-06-18T11:59:40.023Z",
+      "score": 88,
+      "feedback": [],
+      "strengths": [
+        "The code is well-structured and follows a consistent naming convention.",
+        "The use of TypeScript and functional components makes the code more maintainable and efficient.",
+        "The code is well-commented and easy to understand."
+      ],
+      "improvements": [
+        "Some of the functions in the TaskCard component are quite long and complex. Consider breaking them down into smaller, more manageable functions.",
+        "The use of magic numbers (e.g. 3 in the isDueSoon calculation) should be avoided. Consider defining constants for these values.",
+        "The code could benefit from more unit tests to ensure that it is working correctly in different scenarios."
+      ],
+      "readability": 85,
+      "maintainability": 90,
+      "overall": "The code is well-structured and maintainable, but could benefit from some improvements to make it even more efficient and robust. With some refactoring and additional testing, this code has the potential to be a high-quality, scalable solution."
+    }
   }
 ]
