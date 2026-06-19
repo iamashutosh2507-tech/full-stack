@@ -247,6 +247,39 @@ function AppContent() {
     />
   }
 />
+<Route
+path="/challenge/15-component-organization"
+element={ <TaskApp
+   tasks={tasks}
+   setTasks={setTasks}
+   showForm
+   showFilterBar
+   showStatsPanel
+ />
+}
+/>
+
+<Route
+path="/challenge/16-context-api-theme"
+element={ <TaskApp
+   tasks={tasks}
+   setTasks={setTasks}
+   showForm
+   showFilterBar
+   showStatsPanel
+ />
+}
+/>
+
+<Route
+path="/challenge/21-react-router"
+element={ <TaskApp
+   tasks={tasks}
+   setTasks={setTasks}
+   showForm
+ />
+}
+/>
 
 
   

@@ -1,23 +1,23 @@
 {
-  "lastUpdated": "2026-06-19T07:53:41.263Z",
+  "lastUpdated": "2026-06-19T18:28:25.570Z",
   "pathway": {
     "name": "Modern React Engineer",
     "version": "1.0.0",
     "overallScore": 26.9,
-    "completionPercentage": 28.3,
+    "completionPercentage": 30.2,
     "badgeLevel": "none",
     "totalChallenges": 53,
-    "completedChallenges": 15
+    "completedChallenges": 16
   },
   "courses": {
     "01-react-fundamentals": {
       "courseId": "01-react-fundamentals",
       "courseName": "React Fundamentals",
       "averageScore": 81.5,
-      "completionPercentage": 65.2,
+      "completionPercentage": 69.6,
       "badgeLevel": "bronze",
       "totalChallenges": 23,
-      "completedChallenges": 15,
+      "completedChallenges": 16,
       "challenges": {
         "01-static-task-display": {
           "challengeId": "01-static-task-display",
@@ -242,6 +242,21 @@
             "bestPractices": 100,
             "e2eTests": 0,
             "aiReview": 83
+          }
+        },
+        "16-context-api-theme": {
+          "challengeId": "16-context-api-theme",
+          "challengeName": "Context API - Theme Management",
+          "passed": true,
+          "score": 82.71,
+          "lastRun": "2026-06-19T18:27:21.222Z",
+          "scores": {
+            "functionalTests": 98.6,
+            "codeQuality": 100,
+            "architecture": 100,
+            "bestPractices": 100,
+            "e2eTests": 0,
+            "aiReview": 88
           }
         }
       }

@@ -16,7 +16,8 @@ const completed = tasks.filter(
   (task) => task.completed
 ).length;
 
-const active = total - completed;
+const active =
+  total - completed;
 
 const overdue = tasks.filter(
   (task) => {
@@ -27,37 +28,21 @@ const overdue = tasks.filter(
       return false;
     }
 
-    const today = new Date();
-    today.setHours(
-      0,
-      0,
-      0,
-      0
-    );
-
-    const due = new Date(
-      task.dueDate
-    );
-
-    due.setHours(
-      0,
-      0,
-      0,
-      0
-    );
-
     return (
-      due.getTime() <
-      today.getTime()
+      new Date(
+        task.dueDate
+      ).getTime() <
+      Date.now()
     );
   }
 ).length;
 
-const completionPercentage =
+const percentage =
   total === 0
     ? 0
     : Math.round(
-        (completed / total) *
+        (completed /
+          total) *
           100
       );
 
@@ -66,44 +51,45 @@ return {
   completed,
   active,
   overdue,
-  completionPercentage,
+  percentage,
 };
 
 
 }, [tasks]);
 
-return ( <section id="stats-panel"> <h2>Task Statistics</h2>
+return ( <section id="stats-panel"> <h2>
+Task Statistics </h2>
 
 
-  <p>Total: {stats.total}</p>
+  <div>
+    Total: {stats.total}
+  </div>
 
-  <p>
-    Completed: {stats.completed}
-  </p>
+  <div>
+    Completed:{" "}
+    {stats.completed}
+  </div>
 
-  <p>Active: {stats.active}</p>
+  <div>
+    Active: {stats.active}
+  </div>
 
-  <p>
-    Overdue: {stats.overdue}
-  </p>
-
-  <p>
-    Completion Rate:{" "}
-    {stats.completionPercentage}%
-  </p>
+  <div>
+    Overdue:{" "}
+    {stats.overdue}
+  </div>
 
   <div
     role="progressbar"
     aria-valuenow={
-      stats.completionPercentage
+      stats.percentage
     }
     aria-valuemin={0}
     aria-valuemax={100}
   >
-    {stats.completionPercentage}%
+    {stats.percentage}%
   </div>
 </section>
- 
- 
+
 );
 }
