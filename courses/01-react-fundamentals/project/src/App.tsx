@@ -223,21 +223,33 @@ function AppContent() {
   }
 />
 
+<Route
+  path="/challenge/13-due-dates-and-sorting"
+  element={
+    <TaskApp
+      tasks={tasks}
+      setTasks={setTasks}
+      showForm
+      showFilterBar
+    />
+  }
+/>
+
+<Route
+  path="/challenge/14-task-statistics-dashboard"
+  element={
+    <TaskApp
+      tasks={tasks}
+      setTasks={setTasks}
+      showForm
+      showFilterBar
+      showStatsPanel
+    />
+  }
+/>
 
 
-
-
-            <Route
-              path="/challenge/21-react-router"
-              element={
-                <TaskApp
-                  tasks={tasks}
-                  setTasks={setTasks}
-                  showForm
-                />
-              }
-            />
-
+  
             <Route
               path="/challenge/21-react-router/task/:id"
               element={<TaskDetailPage />}
