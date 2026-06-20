@@ -1,11 +1,11 @@
 {
   "courseId": "01-react-fundamentals",
   "courseName": "React Fundamentals",
-  "lastUpdated": "2026-06-19T18:28:25.385Z",
+  "lastUpdated": "2026-06-20T13:55:57.325Z",
   "totalChallenges": 23,
-  "completedChallenges": 16,
-  "averageScore": 81.5,
-  "completionPercentage": 69.6,
+  "completedChallenges": 17,
+  "averageScore": 81.4,
+  "completionPercentage": 73.9,
   "badgeLevel": "bronze",
   "challengeResults": [
     {
@@ -103,6 +103,18 @@
       "challengeName": "Context API - Theme Management",
       "score": 82.71,
       "passed": true
+    },
+    {
+      "challengeId": "17-custom-hook-uselocalstorage",
+      "challengeName": "Custom Hook - useLocalStorage",
+      "score": 83.2,
+      "passed": true
+    },
+    {
+      "challengeId": "18-usereducer-complex-state",
+      "challengeName": "useReducer - Complex State Management",
+      "score": 77.45,
+      "passed": false
     }
   ],
   "skillStrengths": [
@@ -121,7 +133,8 @@
     "Due Dates and Sorting",
     "Task Statistics Dashboard",
     "Component Organization with Props",
-    "Context API - Theme Management"
+    "Context API - Theme Management",
+    "Custom Hook - useLocalStorage"
   ],
   "improvementAreas": []
 }

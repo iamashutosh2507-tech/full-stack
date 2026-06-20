@@ -1,5 +1,4 @@
 
-import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ChallengeList from "./components/ChallengeList";
 import TaskList from "./components/TaskList";
@@ -8,7 +7,7 @@ import TaskDetailPage from "./components/TaskDetailPage";
 import FetchDemoView from "./components/FetchDemoView";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import type { Task } from "./components/TaskList";
-
+import { useLocalStorage } from "./hooks";
 
 const INITIAL_TASKS: Task[] = [
   {
@@ -58,29 +57,16 @@ const INITIAL_TASKS: Task[] = [
   },
 ];
 
-
 const STORAGE_KEY = "task-app-tasks";
 
-
 function AppContent() {
-  const [tasks, setTasks] = useState<Task[]>(() => {
-    // ...
-    return INITIAL_TASKS;
-  });
+  // FIXED: Properly destructuring variables and removed the broken closing brackets syntax error
+  const [tasks, setTasks] = useLocalStorage<Task[]>(STORAGE_KEY, INITIAL_TASKS);
 
-  useEffect(() => {
-    localStorage.setItem(
-      STORAGE_KEY,
-      JSON.stringify(tasks)
-    );
-  }, [tasks]);
+ 
 
-  const handleDelete = (
-    id: string | number
-  ) => {
-    setTasks((prev) =>
-      prev.filter((t) => t.id !== id)
-    );
+  const handleDelete = (id: string | number) => {
+    setTasks((prev) => prev.filter((t) => t.id !== id));
   };
 
   return (
@@ -98,34 +84,18 @@ function AppContent() {
             <Route
               path="/challenge/02-dynamic-task-rendering"
               element={
-                <TaskApp
-                  tasks={tasks}
-                  setTasks={setTasks}
-                  showForm={false}
-                />
+                <TaskApp tasks={tasks} setTasks={setTasks} showForm={false} />
               }
             />
 
             <Route
               path="/challenge/03-adding-new-tasks"
-              element={
-                <TaskApp
-                  tasks={tasks}
-                  setTasks={setTasks}
-                  showForm
-                />
-              }
+              element={<TaskApp tasks={tasks} setTasks={setTasks} showForm />}
             />
 
             <Route
               path="/challenge/04-task-completion-toggle"
-              element={
-                <TaskApp
-                  tasks={tasks}
-                  setTasks={setTasks}
-                  showForm
-                />
-              }
+              element={<TaskApp tasks={tasks} setTasks={setTasks} showForm />}
             />
 
             <Route
@@ -176,67 +146,92 @@ function AppContent() {
               }
             />
 
-<Route
-  path="/challenge/09-search-functionality"
+            <Route
+              path="/challenge/09-search-functionality"
+              element={
+                <TaskApp
+                  tasks={tasks}
+                  setTasks={setTasks}
+                  showForm
+                  showFilterBar
+                />
+              }
+            />
+
+            <Route
+              path="/challenge/10-useeffect-local-storage"
+              element={
+                <TaskApp
+                  tasks={tasks}
+                  setTasks={setTasks}
+                  showForm
+                  showFilterBar
+                />
+              }
+            />
+            <Route
+              path="/challenge/11-useeffect-debounced-search"
+              element={
+                <TaskApp
+                  tasks={tasks}
+                  setTasks={setTasks}
+                  showForm
+                  showFilterBar
+                />
+              }
+            />
+
+            <Route
+              path="/challenge/12-categories-and-tags"
+              element={
+                <TaskApp
+                  tasks={tasks}
+                  setTasks={setTasks}
+                  showForm
+                  showFilterBar
+                />
+              }
+            />
+
+            <Route
+              path="/challenge/13-due-dates-and-sorting"
+              element={
+                <TaskApp
+                  tasks={tasks}
+                  setTasks={setTasks}
+                  showForm
+                  showFilterBar
+                />
+              }
+            />
+
+            <Route
+              path="/challenge/14-task-statistics-dashboard"
+              element={
+                <TaskApp
+                  tasks={tasks}
+                  setTasks={setTasks}
+                  showForm
+                  showFilterBar
+                  showStatsPanel
+                />
+              }
+            />
+           <Route
+  path="/challenge/15-component-organization"
   element={
     <TaskApp
       tasks={tasks}
       setTasks={setTasks}
       showForm
       showFilterBar
+      showStatsPanel
     />
   }
 />
 
 <Route
-  path="/challenge/10-useeffect-local-storage"
-  element={
-    <TaskApp
-      tasks={tasks}
-      setTasks={setTasks}
-      showForm
-      showFilterBar
-    />
-  }
-/>
-<Route
-  path="/challenge/11-useeffect-debounced-search"
-  element={
-    <TaskApp
-      tasks={tasks}
-      setTasks={setTasks}
-      showForm
-      showFilterBar
-    />
-  }
-/>
-
-<Route
-  path="/challenge/12-categories-and-tags"
-  element={
-    <TaskApp
-      tasks={tasks}
-      setTasks={setTasks}
-      showForm
-      showFilterBar
-    />
-  }
-/>
-
-<Route
-  path="/challenge/13-due-dates-and-sorting"
-  element={
-    <TaskApp
-      tasks={tasks}
-      setTasks={setTasks}
-      showForm
-      showFilterBar
-    />
-  }
-/>
-
-<Route
-  path="/challenge/14-task-statistics-dashboard"
+  path="/challenge/16-context-api-theme"
   element={
     <TaskApp
       tasks={tasks}
@@ -248,41 +243,22 @@ function AppContent() {
   }
 />
 <Route
-path="/challenge/15-component-organization"
-element={ <TaskApp
-   tasks={tasks}
-   setTasks={setTasks}
-   showForm
-   showFilterBar
-   showStatsPanel
- />
-}
+  path="/challenge/17-custom-hook-uselocalstorage"
+  element={
+    <TaskApp
+      tasks={tasks}
+      setTasks={setTasks}
+      showForm
+      showFilterBar
+      showStatsPanel
+    />
+  }
 />
+            <Route
+              path="/challenge/21-react-router"
+              element={<TaskApp tasks={tasks} setTasks={setTasks} showForm />}
+            />
 
-<Route
-path="/challenge/16-context-api-theme"
-element={ <TaskApp
-   tasks={tasks}
-   setTasks={setTasks}
-   showForm
-   showFilterBar
-   showStatsPanel
- />
-}
-/>
-
-<Route
-path="/challenge/21-react-router"
-element={ <TaskApp
-   tasks={tasks}
-   setTasks={setTasks}
-   showForm
- />
-}
-/>
-
-
-  
             <Route
               path="/challenge/21-react-router/task/:id"
               element={<TaskDetailPage />}
@@ -297,7 +273,7 @@ element={ <TaskApp
       </div>
     </BrowserRouter>
   );
-} 
+}
 
 function App() {
   return (

@@ -1,23 +1,23 @@
 {
-  "lastUpdated": "2026-06-19T18:28:25.570Z",
+  "lastUpdated": "2026-06-20T13:55:57.928Z",
   "pathway": {
     "name": "Modern React Engineer",
     "version": "1.0.0",
     "overallScore": 26.9,
-    "completionPercentage": 30.2,
+    "completionPercentage": 32.1,
     "badgeLevel": "none",
     "totalChallenges": 53,
-    "completedChallenges": 16
+    "completedChallenges": 17
   },
   "courses": {
     "01-react-fundamentals": {
       "courseId": "01-react-fundamentals",
       "courseName": "React Fundamentals",
-      "averageScore": 81.5,
-      "completionPercentage": 69.6,
+      "averageScore": 81.4,
+      "completionPercentage": 73.9,
       "badgeLevel": "bronze",
       "totalChallenges": 23,
-      "completedChallenges": 16,
+      "completedChallenges": 17,
       "challenges": {
         "01-static-task-display": {
           "challengeId": "01-static-task-display",
@@ -219,7 +219,7 @@
           "challengeName": "Task Statistics Dashboard",
           "passed": true,
           "score": 82.71,
-          "lastRun": "2026-06-19T05:25:39.173Z",
+          "lastRun": "2026-06-20T08:53:11.233Z",
           "scores": {
             "functionalTests": 98.6,
             "codeQuality": 100,
@@ -249,7 +249,7 @@
           "challengeName": "Context API - Theme Management",
           "passed": true,
           "score": 82.71,
-          "lastRun": "2026-06-19T18:27:21.222Z",
+          "lastRun": "2026-06-19T18:31:47.244Z",
           "scores": {
             "functionalTests": 98.6,
             "codeQuality": 100,
@@ -257,6 +257,36 @@
             "bestPractices": 100,
             "e2eTests": 0,
             "aiReview": 88
+          }
+        },
+        "17-custom-hook-uselocalstorage": {
+          "challengeId": "17-custom-hook-uselocalstorage",
+          "challengeName": "Custom Hook - useLocalStorage",
+          "passed": true,
+          "score": 83.2,
+          "lastRun": "2026-06-20T13:50:01.415Z",
+          "scores": {
+            "functionalTests": 100,
+            "codeQuality": 100,
+            "architecture": 100,
+            "bestPractices": 100,
+            "e2eTests": 0,
+            "aiReview": 88
+          }
+        },
+        "18-usereducer-complex-state": {
+          "challengeId": "18-usereducer-complex-state",
+          "challengeName": "useReducer - Complex State Management",
+          "passed": false,
+          "score": 77.45,
+          "lastRun": "2026-06-20T13:52:09.547Z",
+          "scores": {
+            "functionalTests": 100,
+            "codeQuality": 100,
+            "architecture": 50,
+            "bestPractices": 100,
+            "e2eTests": 0,
+            "aiReview": 83
           }
         }
       }

@@ -91,7 +91,7 @@ function checkFileForPatterns(content, patternsRequired, fileName) {
       CallExpression(path) {
         const calleeName = path.node.callee.name;
         if (calleeName === 'useState') foundPatterns.add('useState');
-        if (calleeName === 'useReducer') foundPatterns.add('useState'); // useReducer satisfies state-in-component requirement
+        if (calleeName === 'useReducer') foundPatterns.add('useState');
         if (calleeName === 'createContext') foundPatterns.add('createContext');
         if (calleeName === 'useContext') foundPatterns.add('useContext');
         if (calleeName && calleeName.startsWith('use')) foundPatterns.add('customHook');
@@ -154,6 +154,7 @@ function checkFileForPatterns(content, patternsRequired, fileName) {
       ConditionalExpression() {
         foundPatterns.add('conditionalRendering');
       },
+
       LogicalExpression(path) {
         if (path.node.operator === '&&' || path.node.operator === '||') {
           foundPatterns.add('conditionalRendering');
@@ -161,7 +162,7 @@ function checkFileForPatterns(content, patternsRequired, fileName) {
       }
     });
 
-    // Fallback: AST may not expose id/params in some TS/parser edge cases
+    // Fallbacks for AST edge cases
     if (patternsRequired.includes('functionalComponent') && !foundPatterns.has('functionalComponent')) {
       if (/function\s+[A-Z][A-Za-z0-9]*\s*\(/.test(content) || /const\s+[A-Z][A-Za-z0-9]*\s*=\s*(?:\([^)]*\)\s*=>|function)/.test(content)) {
         foundPatterns.add('functionalComponent');
@@ -177,8 +178,12 @@ function checkFileForPatterns(content, patternsRequired, fileName) {
         foundPatterns.add('controlledComponents');
       }
     }
+    if (patternsRequired.includes('customHook') && !foundPatterns.has('customHook')) {
+      if (/use[A-Za-z]+\s*[(<]/.test(content)) {
+        foundPatterns.add('customHook');
+      }
+    }
 
-    // Check which required patterns were found
     for (const pattern of patternsRequired) {
       if (foundPatterns.has(pattern)) {
         patternsFound.push(pattern);
@@ -214,6 +219,10 @@ function checkFileForPatterns(content, patternsRequired, fileName) {
     if (patternsRequired.includes('useRef')) {
       if (/useRef\s*\(/.test(content)) fallbackFound.add('useRef');
     }
+    if (patternsRequired.includes('customHook')) {
+      if (/use[A-Za-z]+\s*[(<]/.test(content)) fallbackFound.add('customHook');
+    }
+
     for (const pattern of patternsRequired) {
       if (fallbackFound.has(pattern) || content.includes(pattern) || content.includes(pattern.replace(/([A-Z])/g, '-$1').toLowerCase())) {
         patternsFound.push(pattern);
