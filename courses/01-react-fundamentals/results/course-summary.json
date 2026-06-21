@@ -1,12 +1,12 @@
 {
   "courseId": "01-react-fundamentals",
   "courseName": "React Fundamentals",
-  "lastUpdated": "2026-06-20T13:55:57.325Z",
+  "lastUpdated": "2026-06-21T07:33:19.407Z",
   "totalChallenges": 23,
-  "completedChallenges": 17,
-  "averageScore": 81.4,
-  "completionPercentage": 73.9,
-  "badgeLevel": "bronze",
+  "completedChallenges": 18,
+  "averageScore": 81.7,
+  "completionPercentage": 78.3,
+  "badgeLevel": "silver",
   "challengeResults": [
     {
       "challengeId": "01-static-task-display",
@@ -113,8 +113,8 @@
     {
       "challengeId": "18-usereducer-complex-state",
       "challengeName": "useReducer - Complex State Management",
-      "score": 77.45,
-      "passed": false
+      "score": 83.2,
+      "passed": true
     }
   ],
   "skillStrengths": [
@@ -134,7 +134,8 @@
     "Task Statistics Dashboard",
     "Component Organization with Props",
     "Context API - Theme Management",
-    "Custom Hook - useLocalStorage"
+    "Custom Hook - useLocalStorage",
+    "useReducer - Complex State Management"
   ],
   "improvementAreas": []
 }

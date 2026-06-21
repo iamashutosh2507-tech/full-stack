@@ -68,12 +68,12 @@ npm run review -- --challenge=01-static-task-display
 
 ## 📊 Progress Evidence
 
-*Auto-updated when you run review. Last run: 20/6/2026, 7:25:57 pm*
+*Auto-updated when you run review. Last run: 21/6/2026, 1:03:19 pm*
 
 | Metric | Value |
 |--------|-------|
-| Challenges completed | 17 / 23 (73.9%) |
-| Average score | 81.4% |
+| Challenges completed | 18 / 23 (78.3%) |
+| Average score | 81.7% |
 
 | Challenge | Skills covered | Status |
 |-----------|----------------|--------|
@@ -94,7 +94,7 @@ npm run review -- --challenge=01-static-task-display
 | Component Organization with Props | Component extraction, Props interface design, Single Responsibility, Reusability, Props destructuring | Passed |
 | Context API - Theme Management | React Context, createContext, Provider, useContext, Global state, Custom hook | Passed |
 | Custom Hook - useLocalStorage | Custom hooks, Hook composition, Reusable logic, localStorage abstraction | Passed |
-| useReducer - Complex State Management | useReducer, Reducer functions, Action objects, Dispatch pattern, Complex state logic | Not passed |
+| useReducer - Complex State Management | useReducer, Reducer functions, Action objects, Dispatch pattern, Complex state logic | Passed |
 | Performance Optimization | React.memo, useCallback, useMemo, Re-render optimization | — |
 | Error Boundaries and Error Handling | Error boundaries, Class component, Error handling, Fallback UI, try-catch | — |
 | React Router - Routing and Navigation | React Router, Route, Link, useNavigate, useParams, URL-driven UI, Dynamic segments | — |

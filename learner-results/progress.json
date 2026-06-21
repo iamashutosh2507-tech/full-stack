@@ -1,23 +1,23 @@
 {
-  "lastUpdated": "2026-06-20T13:55:57.928Z",
+  "lastUpdated": "2026-06-21T07:33:19.687Z",
   "pathway": {
     "name": "Modern React Engineer",
     "version": "1.0.0",
-    "overallScore": 26.9,
-    "completionPercentage": 32.1,
+    "overallScore": 27,
+    "completionPercentage": 34,
     "badgeLevel": "none",
     "totalChallenges": 53,
-    "completedChallenges": 17
+    "completedChallenges": 18
   },
   "courses": {
     "01-react-fundamentals": {
       "courseId": "01-react-fundamentals",
       "courseName": "React Fundamentals",
-      "averageScore": 81.4,
-      "completionPercentage": 73.9,
-      "badgeLevel": "bronze",
+      "averageScore": 81.7,
+      "completionPercentage": 78.3,
+      "badgeLevel": "silver",
       "totalChallenges": 23,
-      "completedChallenges": 17,
+      "completedChallenges": 18,
       "challenges": {
         "01-static-task-display": {
           "challengeId": "01-static-task-display",
@@ -277,16 +277,16 @@
         "18-usereducer-complex-state": {
           "challengeId": "18-usereducer-complex-state",
           "challengeName": "useReducer - Complex State Management",
-          "passed": false,
-          "score": 77.45,
-          "lastRun": "2026-06-20T13:52:09.547Z",
+          "passed": true,
+          "score": 83.2,
+          "lastRun": "2026-06-21T07:31:01.062Z",
           "scores": {
             "functionalTests": 100,
             "codeQuality": 100,
-            "architecture": 50,
+            "architecture": 100,
             "bestPractices": 100,
             "e2eTests": 0,
-            "aiReview": 83
+            "aiReview": 88
           }
         }
       }
