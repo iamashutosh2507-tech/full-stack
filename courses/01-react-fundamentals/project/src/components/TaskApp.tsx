@@ -13,6 +13,7 @@ interface TaskAppProps {
   onDelete?: (id: string | number) => void;
   showFilterBar?: boolean;
   showStatsPanel?: boolean;
+  linkToTaskDetail?: boolean;
 }
 
 export default function TaskApp({
@@ -22,6 +23,7 @@ export default function TaskApp({
   onDelete,
   showFilterBar,
   showStatsPanel,
+  linkToTaskDetail,
 }: TaskAppProps) {
   const [filter, setFilter] = useState<"all" | "active" | "completed">("all");
   const [sortOrder, setSortOrder] = useState("recent");
@@ -50,17 +52,32 @@ export default function TaskApp({
     );
   }, [setTasks]);
 
-  const handleUpdateTask = useCallback((
+  const handleUpdateTask = useCallback(
+  (
     id: string | number,
     updates: { title: string; description: string; priority: string }
   ) => {
     if (!setTasks) return;
-    if (!updates.title.trim()) return;
+
+    if (
+      !updates.title.trim() ||
+      !updates.description.trim()
+    ) {
+      return;
+    }
+
     setTasks((prev) =>
-      prev.map((task) => task.id === id ? { ...task, ...updates } : task)
+      prev.map((task) =>
+        task.id === id
+          ? { ...task, ...updates }
+          : task
+      )
     );
+
     setEditingId(null);
-  }, [setTasks]);
+  },
+  [setTasks]
+);
 
   const categories = useMemo(() => [
     ...new Set(tasks.map((task) => task.category).filter(Boolean)),
@@ -141,6 +158,7 @@ export default function TaskApp({
             onUpdateTask={handleUpdateTask}
             editingId={editingId}
             setEditingId={setEditingId}
+            linkToTaskDetail={linkToTaskDetail}
           />
         </ErrorBoundary>
       )}

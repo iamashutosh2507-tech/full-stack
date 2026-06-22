@@ -33,37 +33,45 @@ export default function TaskForm({
   const [error, setError] = useState("");
 
   function handleSubmit(
-    e: React.FormEvent
-  ) {
-    e.preventDefault();
+  e: React.FormEvent
+) {
+  e.preventDefault();
 
-    if (!title.trim()) {
-      setError("Title is required");
-      return;
-    }
-
-    setError("");
-
-    onAddTask({
-      id: Date.now(),
-      title,
-      description,
-      priority,
-      completed: false,
-      category,
-      tags: tagsInput
-        .split(",")
-        .map((tag) => tag.trim())
-        .filter(Boolean),
-    });
-
-    setTitle("");
-    setDescription("");
-    setPriority("Low");
-    setCategory("General");
-    setTagsInput("");
+  if (!title.trim()) {
+    setError("Title is required");
+    return;
   }
 
+  if (
+    !["Low", "Medium", "High"].includes(
+      priority
+    )
+  ) {
+    setError("Invalid priority");
+    return;
+  }
+
+  setError("");
+
+  onAddTask({
+    id: Date.now(),
+    title: title.trim(),
+    description: description.trim(),
+    priority,
+    completed: false,
+    category,
+    tags: tagsInput
+      .split(",")
+      .map((tag) => tag.trim())
+      .filter(Boolean),
+  });
+
+  setTitle("");
+  setDescription("");
+  setPriority("Low");
+  setCategory("General");
+  setTagsInput("");
+}
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="task-title">

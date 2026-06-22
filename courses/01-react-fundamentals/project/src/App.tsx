@@ -60,32 +60,9 @@ function AppContent() {
             <Route path="/challenge/16-context-api-theme" element={<TaskApp tasks={tasks} setTasks={setTasks} showForm showFilterBar showStatsPanel />} />
             <Route path="/challenge/17-custom-hook-uselocalstorage" element={<TaskApp tasks={tasks} setTasks={setTasks} showForm showFilterBar showStatsPanel />} />
             <Route path="/challenge/18-usereducer-complex-state" element={<TaskApp tasks={tasks} setTasks={setTasks} showForm showFilterBar showStatsPanel />} />
-           <Route
-  path="/challenge/19-performance-optimization"
-  element={
-    <TaskApp
-      tasks={tasks}
-      setTasks={setTasks}
-      showForm
-      showFilterBar
-      showStatsPanel
-    />
-  }
-/>
-
-<Route
-  path="/challenge/20-error-boundaries"
-  element={
-    <TaskApp
-      tasks={tasks}
-      setTasks={setTasks}
-      showForm
-      showFilterBar
-      showStatsPanel
-    />
-  }
-/>
-            <Route path="/challenge/21-react-router" element={<TaskApp tasks={tasks} setTasks={setTasks} showForm />} />
+            <Route path="/challenge/19-performance-optimization" element={<TaskApp tasks={tasks} setTasks={setTasks} showForm showFilterBar showStatsPanel />} />
+            <Route path="/challenge/20-error-boundaries" element={<TaskApp tasks={tasks} setTasks={setTasks} showForm showFilterBar showStatsPanel />} />
+            <Route path="/challenge/21-react-router" element={<TaskApp tasks={tasks} setTasks={setTasks} showForm linkToTaskDetail />} />
             <Route path="/challenge/21-react-router/task/:id" element={<TaskDetailPage />} />
             <Route path="/challenge/22-data-fetching" element={<FetchDemoView />} />
           </Routes>

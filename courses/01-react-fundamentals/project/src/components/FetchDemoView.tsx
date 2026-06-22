@@ -1,34 +1,58 @@
-import { useEffect, useState } from "react"
+import { useState, useEffect } from 'react'
 
-interface Todo {
+interface TodoItem {
   id: number
   title: string
+  completed: boolean
 }
 
 export default function FetchDemoView() {
-  const [todos, setTodos] = useState<Todo[]>([])
-  const [error, setError] = useState(false)
+  const [items, setItems] = useState<TodoItem[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState('')
 
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/todos?_limit=1")
-      .then((response) => response.json())
+    let cancelled = false
+
+    setLoading(true)
+    setError('')
+
+    fetch('/api/todos.json')
+      .then((res) => {
+        if (!res.ok) throw new Error('Failed to fetch todos')
+        return res.json()
+      })
       .then((data) => {
-        setTodos(data)
+        if (cancelled) return
+        setItems(data)
+        setLoading(false)
       })
-      .catch(() => {
-        setError(true)
+      .catch((err) => {
+        if (cancelled) return
+        setError(err.message)
+        setLoading(false)
       })
+
+    return () => {
+      cancelled = true
+    }
   }, [])
 
+  if (loading) {
+    return <div id="fetch-loading">Loading...</div>
+  }
+
   if (error) {
-    return <div id="fetch-error">Failed to fetch</div>
+    return <div id="fetch-error">{error}</div>
   }
 
   return (
-    <div id="fetch-list">
-      {todos.map((todo) => (
-        <p key={todo.id}>{todo.title}</p>
-      ))}
+    <div id="fetch-demo">
+      <ul id="fetch-list">
+        {items.map((item) => (
+          <li key={item.id}>{item.title}</li>
+        ))}
+      </ul>
     </div>
   )
 }

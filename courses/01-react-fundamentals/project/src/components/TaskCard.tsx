@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 interface TaskCardProps {
   title: string;
@@ -14,12 +15,9 @@ interface TaskCardProps {
   setEditingId?: (id: string | number | null) => void;
   onUpdateTask?: (
     id: string | number,
-    updates: {
-      title: string;
-      description: string;
-      priority: string;
-    }
+    updates: { title: string; description: string; priority: string }
   ) => void;
+  linkToTaskDetail?: boolean;
 }
 
 function TaskCard({
@@ -35,13 +33,13 @@ function TaskCard({
   editingId,
   setEditingId,
   onUpdateTask,
+  linkToTaskDetail,
 }: TaskCardProps) {
   const resolvedId = taskId ?? id ?? 0;
   const isEditing = editingId === resolvedId;
 
   const today = new Date();
   today.setHours(0, 0, 0, 0);
-
   const due = dueDate ? new Date(dueDate) : null;
   if (due) due.setHours(0, 0, 0, 0);
 
@@ -115,12 +113,21 @@ function TaskCard({
         </>
       ) : (
         <>
-          <h2 style={completed ? { textDecoration: "line-through" } : undefined}>{title}</h2>
+          <h2 style={completed ? { textDecoration: "line-through" } : undefined}>
+            {linkToTaskDetail ? (
+              <Link
+  id={`task-link-${resolvedId}`}
+  to={`/challenge/21-react-router/task/${resolvedId}`}
+>
+  {title}
+</Link>
+            ) : (
+              title
+            )}
+          </h2>
           <p style={completed ? { textDecoration: "line-through" } : undefined}>{description}</p>
           <p>Priority: {priority}</p>
-          {dueDate && (
-            <p id="task-due-date">Due: {new Date(dueDate).toLocaleDateString()}</p>
-          )}
+          {dueDate && <p id="task-due-date">Due: {new Date(dueDate).toLocaleDateString()}</p>}
           {isOverdue && <p>Overdue</p>}
           {isDueToday && <p>Due Today</p>}
           {isDueSoon && <p>Due Soon</p>}

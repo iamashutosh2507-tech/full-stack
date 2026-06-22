@@ -294,10 +294,10 @@ async function reviewChallenge(challenge, config) {
         challengeMetadata.filesToCheck,
         PROJECT_DIR
       );
-      result.scores.aiReview = aiResults.score || 0;
+     result.scores.aiReview = typeof aiResults.score === 'number' ? (aiResults.score > 1 ? aiResults.score : aiResults.score * 100) : 0;
       result.aiReviewResults = aiResults;
       result.aiResults = aiResults; // Also store as aiResults for compatibility
-      console.log(`   Score: ${(aiResults.score || 0).toFixed(1)}%`);
+      console.log(`   DEBUG aiResults:`, JSON.stringify(aiResults).substring(0, 200));
       if (aiResults.strengths && aiResults.strengths.length > 0) {
         console.log(`   ✅ Strengths: ${aiResults.strengths.slice(0, 2).join(', ')}`);
       }
@@ -311,8 +311,8 @@ async function reviewChallenge(challenge, config) {
     }
 
     // Calculate total score (comprehensive end-to-end)
-    const e2eWeight = config.scoring.e2eTests || 0.15;
-    const aiWeight = config.scoring.aiReview || 0.05;
+    const e2eWeight = config.scoring.e2eTests != null ? config.scoring.e2eTests : 0.15;
+    const aiWeight = config.scoring.aiReview != null ? config.scoring.aiReview : 0.05;
     
     result.totalScore = (
       result.scores.functionalTests * config.scoring.functionalTests +

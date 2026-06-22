@@ -1,23 +1,23 @@
 {
-  "lastUpdated": "2026-06-21T07:55:12.610Z",
+  "lastUpdated": "2026-06-22T16:45:55.528Z",
   "pathway": {
     "name": "Modern React Engineer",
     "version": "1.0.0",
-    "overallScore": 27,
-    "completionPercentage": 37.7,
+    "overallScore": 27.7,
+    "completionPercentage": 43.4,
     "badgeLevel": "none",
     "totalChallenges": 53,
-    "completedChallenges": 20
+    "completedChallenges": 23
   },
   "courses": {
     "01-react-fundamentals": {
       "courseId": "01-react-fundamentals",
       "courseName": "React Fundamentals",
-      "averageScore": 81.9,
-      "completionPercentage": 87,
+      "averageScore": 83.8,
+      "completionPercentage": 100,
       "badgeLevel": "silver",
       "totalChallenges": 23,
-      "completedChallenges": 20,
+      "completedChallenges": 23,
       "challenges": {
         "01-static-task-display": {
           "challengeId": "01-static-task-display",
@@ -317,6 +317,51 @@
             "bestPractices": 100,
             "e2eTests": 0,
             "aiReview": 88
+          }
+        },
+        "21-react-router": {
+          "challengeId": "21-react-router",
+          "challengeName": "React Router - Routing and Navigation",
+          "passed": true,
+          "score": 97.45,
+          "lastRun": "2026-06-22T16:37:58.499Z",
+          "scores": {
+            "functionalTests": 100,
+            "codeQuality": 100,
+            "architecture": 100,
+            "bestPractices": 100,
+            "e2eTests": 0,
+            "aiReview": 83
+          }
+        },
+        "22-data-fetching": {
+          "challengeId": "22-data-fetching",
+          "challengeName": "Data Fetching - Loading and Error State",
+          "passed": true,
+          "score": 97.45,
+          "lastRun": "2026-06-22T16:41:27.535Z",
+          "scores": {
+            "functionalTests": 100,
+            "codeQuality": 100,
+            "architecture": 100,
+            "bestPractices": 100,
+            "e2eTests": 0,
+            "aiReview": 83
+          }
+        },
+        "23-useref-focus-management": {
+          "challengeId": "23-useref-focus-management",
+          "challengeName": "useRef - Focus Management",
+          "passed": true,
+          "score": 94.12,
+          "lastRun": "2026-06-22T16:43:51.878Z",
+          "scores": {
+            "functionalTests": 100,
+            "codeQuality": 100,
+            "architecture": 66.7,
+            "bestPractices": 100,
+            "e2eTests": 0,
+            "aiReview": 83
           }
         }
       }

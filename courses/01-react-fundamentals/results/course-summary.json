@@ -1,11 +1,11 @@
 {
   "courseId": "01-react-fundamentals",
   "courseName": "React Fundamentals",
-  "lastUpdated": "2026-06-21T07:55:12.381Z",
+  "lastUpdated": "2026-06-22T16:45:55.290Z",
   "totalChallenges": 23,
-  "completedChallenges": 20,
-  "averageScore": 81.9,
-  "completionPercentage": 87,
+  "completedChallenges": 23,
+  "averageScore": 83.8,
+  "completionPercentage": 100,
   "badgeLevel": "silver",
   "challengeResults": [
     {
@@ -127,6 +127,24 @@
       "challengeName": "Error Boundaries and Error Handling",
       "score": 83.2,
       "passed": true
+    },
+    {
+      "challengeId": "21-react-router",
+      "challengeName": "React Router - Routing and Navigation",
+      "score": 97.45,
+      "passed": true
+    },
+    {
+      "challengeId": "22-data-fetching",
+      "challengeName": "Data Fetching - Loading and Error State",
+      "score": 97.45,
+      "passed": true
+    },
+    {
+      "challengeId": "23-useref-focus-management",
+      "challengeName": "useRef - Focus Management",
+      "score": 94.12,
+      "passed": true
     }
   ],
   "skillStrengths": [
@@ -149,7 +167,10 @@
     "Custom Hook - useLocalStorage",
     "useReducer - Complex State Management",
     "Performance Optimization",
-    "Error Boundaries and Error Handling"
+    "Error Boundaries and Error Handling",
+    "React Router - Routing and Navigation",
+    "Data Fetching - Loading and Error State",
+    "useRef - Focus Management"
   ],
   "improvementAreas": []
 }

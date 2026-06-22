@@ -458,5 +458,73 @@
       "maintainability": 90,
       "overall": "The code is well-organized and follows best practices for React development. However, there are some minor improvements that could be made to enhance readability and maintainability."
     }
+  },
+  {
+    "challengeId": "21-react-router",
+    "challengeName": "React Router - Routing and Navigation",
+    "aiReview": {
+      "challengeId": "21-react-router",
+      "timestamp": "2026-06-22T16:40:05.800Z",
+      "score": 83,
+      "feedback": [],
+      "strengths": [
+        "Proper use of React Router for routing and navigation",
+        "Use of TypeScript for type checking and better code quality"
+      ],
+      "improvements": [
+        "In TaskDetailPage, consider using a more robust way to handle invalid task IDs, such as displaying a loading state or an error message",
+        "In TaskApp, the linkToTaskDetail prop is not being used consistently across components, consider removing it or making it required",
+        "In TaskList, the linkToTaskDetail prop is not being used, consider removing it or making it required"
+      ],
+      "readability": 80,
+      "maintainability": 85,
+      "overall": "The code is well-structured and follows best practices, but there are some areas for improvement to make it more robust and consistent."
+    }
+  },
+  {
+    "challengeId": "22-data-fetching",
+    "challengeName": "Data Fetching - Loading and Error State",
+    "aiReview": {
+      "challengeId": "22-data-fetching",
+      "timestamp": "2026-06-22T16:43:02.337Z",
+      "score": 83,
+      "feedback": [],
+      "strengths": [
+        "Proper use of useEffect for data fetching",
+        "Clear separation of concerns between state variables",
+        "Error handling in place"
+      ],
+      "improvements": [
+        "Consider using try-catch block instead of nested if statements for error handling",
+        "Add a loading state indicator to the FetchDemoView component",
+        "Use a more robust way to handle cancelled requests, such as using AbortController"
+      ],
+      "readability": 80,
+      "maintainability": 85,
+      "overall": "The code is well-structured and follows best practices, but there are some minor improvements that can be made to enhance its robustness and maintainability."
+    }
+  },
+  {
+    "challengeId": "23-useref-focus-management",
+    "challengeName": "useRef - Focus Management",
+    "aiReview": {
+      "challengeId": "23-useref-focus-management",
+      "timestamp": "2026-06-22T16:45:54.246Z",
+      "score": 83,
+      "feedback": [],
+      "strengths": [
+        "Clear and concise code structure",
+        "Proper use of TypeScript types and interfaces",
+        "Well-organized component props and state management"
+      ],
+      "improvements": [
+        "Consider adding a default value for the `onFilterChange` prop in `FilterBar` to prevent potential errors",
+        "In `TaskApp`, consider using a more robust state management approach, such as Redux or MobX, to handle complex state updates",
+        "In `App`, consider using a more robust routing library, such as React Router v6, to handle client-side routing"
+      ],
+      "readability": 80,
+      "maintainability": 85,
+      "overall": "The code is well-structured and maintainable, with good use of TypeScript and React best practices. However, there are some areas for improvement to make the code more robust and scalable."
+    }
   }
 ]

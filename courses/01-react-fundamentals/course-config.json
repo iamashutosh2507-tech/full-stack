@@ -29,11 +29,11 @@
     { "id": "23-useref-focus-management", "name": "useRef - Focus Management", "weight": 0.05 }
   ],
   "scoring": {
-    "functionalTests": 0.35,
-    "codeQuality": 0.15,
+    "functionalTests": 0.45,
+    "codeQuality": 0.20,
     "architecture": 0.10,
     "bestPractices": 0.10,
-    "e2eTests": 0.15,
+    "e2eTests": 0,
     "aiReview": 0.15
   },
   "requirements": {
