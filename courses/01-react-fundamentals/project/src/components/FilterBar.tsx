@@ -2,12 +2,13 @@
 type Filter = "all" | "active" | "completed";
 
 interface FilterBarProps {
-  filter: Filter;
-  onFilterChange: (filter: Filter) => void;
-  sortOrder: string;
-  onSortChange: (value: string) => void;
+  filter?: Filter;
+  onFilterChange?: (filter: Filter) => void;
+  sortOrder?: string;
+  onSortChange?: (value: string) => void;
 
   searchText?: string;
+  searchQuery?: string;
   onSearchChange?: (value: string) => void;
   onClearSearch?: () => void;
 
@@ -26,7 +27,8 @@ function FilterBar({
   onFilterChange,
   sortOrder,
   onSortChange,
-  searchText = "",
+  searchText,
+  searchQuery,
   onSearchChange,
   onClearSearch,
   isSearching = false,
@@ -34,25 +36,27 @@ function FilterBar({
   onCategoryFilterChange,
   categories = [],
 }: FilterBarProps) {
+  const activeSearch = searchText ?? searchQuery ?? "";
+
   return (
     <div id="filter-bar">
       <button
         data-active={filter === "all"}
-        onClick={() => onFilterChange("all")}
+        onClick={() => onFilterChange?.("all")}
       >
         All
       </button>
 
       <button
         data-active={filter === "active"}
-        onClick={() => onFilterChange("active")}
+        onClick={() => onFilterChange?.("active")}
       >
         Active
       </button>
 
       <button
         data-active={filter === "completed"}
-        onClick={() => onFilterChange("completed")}
+        onClick={() => onFilterChange?.("completed")}
       >
         Completed
       </button>
@@ -82,9 +86,9 @@ function FilterBar({
 
       <select
         id="sort-order"
-        value={sortOrder}
+        value={sortOrder ?? "recent"}
         onChange={(e) =>
-          onSortChange(e.target.value)
+          onSortChange?.(e.target.value)
         }
       >
         <option value="recent">
@@ -108,7 +112,7 @@ function FilterBar({
         id="search-input"
         type="text"
         placeholder="Search tasks..."
-        value={searchText}
+        value={activeSearch}
         onChange={(e) =>
           onSearchChange?.(e.target.value)
         }
@@ -120,7 +124,7 @@ function FilterBar({
         </div>
       )}
 
-      {searchText.trim() !== "" && (
+      {activeSearch.trim() !== "" && (
         <button
           id="clear-search"
           type="button"

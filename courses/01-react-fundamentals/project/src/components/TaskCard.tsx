@@ -7,6 +7,8 @@ interface TaskCardProps {
   priority?: string;
   completed?: boolean;
   dueDate?: string;
+  category?: string;
+  tags?: string[];
   onToggle?: (id: string | number) => void;
   onDelete?: (id: string | number) => void;
   taskId?: string | number;

@@ -5,13 +5,21 @@ import traverse from '@babel/traverse';
 
 /**
  * File-specific pattern rules
+ * `challengeNum` is the numeric prefix of the challenge id (e.g. 1 for
+ * "01-store-setup"). Some patterns only become relevant once a later
+ * challenge introduces them (e.g. RTK Query middleware from challenge 06+),
+ * so store.ts shouldn't be penalized for missing them earlier.
  */
-function getFileSpecificPatterns(file) {
+function getFileSpecificPatterns(file, challengeNum) {
   if (file.includes("api/usersApi")) {
     return ["createApi", "fetchBaseQuery", "endpoints"];
   }
   if (file.includes("store")) {
-    return ["reducer", "middleware"];
+    const patterns = ["reducer"];
+    if (challengeNum >= 6) {
+      patterns.push("middleware");
+    }
+    return patterns;
   }
   if (file.includes("UsersList")) {
     return ["useQueryHook"];
@@ -27,6 +35,7 @@ function getFileSpecificPatterns(file) {
  */
 export async function checkArchitecture(challengeMetadata, projectDir) {
   const filesToCheck = challengeMetadata.filesToCheck || [];
+  const challengeNum = parseInt((challengeMetadata.challengeId || '').split('-')[0], 10) || 0;
 
   const results = {
     score: 0,
@@ -41,7 +50,7 @@ export async function checkArchitecture(challengeMetadata, projectDir) {
 
   for (const file of filesToCheck) {
     const filePath = join(projectDir, file);
-    const patternsRequired = getFileSpecificPatterns(file);
+    const patternsRequired = getFileSpecificPatterns(file, challengeNum);
 
     if (!existsSync(filePath)) {
       results.details.push({

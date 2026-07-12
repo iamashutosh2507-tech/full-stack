@@ -309,7 +309,7 @@ async function callGroqAPI(prompt) {
         }
       ],
       temperature: 0.3,
-      max_tokens: 1500 // Increased for more detailed feedback
+      max_tokens: 2500 // Increased for more detailed feedback
     })
   });
 
@@ -331,11 +331,17 @@ async function callGroqAPI(prompt) {
  * Parse AI response
  */
 function parseAIResponse(response) {
-  try {
-    // Try to extract JSON from response
-    const jsonMatch = response.match(/\{[\s\S]*\}/);
-    if (jsonMatch) {
-      const parsed = JSON.parse(jsonMatch[0]);
+  // Prefer content inside a ```json ... ``` fence if present (strips any
+  // leading prose like "## Review" that the model sometimes adds).
+  const fenceMatch = response.match(/```json\s*([\s\S]*?)```/i);
+  const candidates = [
+    fenceMatch ? fenceMatch[1] : null,
+    response
+  ].filter(Boolean);
+
+  for (const candidate of candidates) {
+    const parsed = tryParseJSONObject(candidate);
+    if (parsed) {
       return {
         readability: parsed.readability || 0,
         maintainability: parsed.maintainability || 0,
@@ -345,8 +351,6 @@ function parseAIResponse(response) {
         requirementCompliance: parsed.requirementCompliance || 0
       };
     }
-  } catch (error) {
-    // Fallback parsing
   }
 
   // Fallback: extract information manually
@@ -362,6 +366,64 @@ function parseAIResponse(response) {
     improvements: extractList(response, /improvements?/i),
     overall: response.substring(0, 500)
   };
+}
+
+/**
+ * Parse a JSON object out of possibly-truncated model output (e.g. cut off
+ * by max_tokens mid-string). Tries as-is, then closes any unterminated
+ * string/braces, then falls back to dropping the last incomplete element.
+ */
+function tryParseJSONObject(text) {
+  const start = text.indexOf('{');
+  if (start === -1) return null;
+  const str = text.slice(start).trim();
+
+  let result = safeJSONParse(str);
+  if (result) return result;
+
+  result = safeJSONParse(closeUnterminatedJSON(str));
+  if (result) return result;
+
+  const lastComma = str.lastIndexOf(',');
+  if (lastComma > -1) {
+    result = safeJSONParse(closeUnterminatedJSON(str.slice(0, lastComma)));
+    if (result) return result;
+  }
+
+  return null;
+}
+
+function safeJSONParse(str) {
+  try {
+    return JSON.parse(str);
+  } catch {
+    return null;
+  }
+}
+
+function closeUnterminatedJSON(str) {
+  const stack = [];
+  let inString = false;
+  let escape = false;
+
+  for (const ch of str) {
+    if (inString) {
+      if (escape) escape = false;
+      else if (ch === '\\') escape = true;
+      else if (ch === '"') inString = false;
+      continue;
+    }
+    if (ch === '"') { inString = true; continue; }
+    if (ch === '{' || ch === '[') stack.push(ch);
+    else if (ch === '}' || ch === ']') stack.pop();
+  }
+
+  let closed = str;
+  if (inString) closed += '"';
+  for (let i = stack.length - 1; i >= 0; i--) {
+    closed += stack[i] === '{' ? '}' : ']';
+  }
+  return closed;
 }
 
 /**
