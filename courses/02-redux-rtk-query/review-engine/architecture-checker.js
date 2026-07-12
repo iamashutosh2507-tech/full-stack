@@ -14,7 +14,7 @@ function getFileSpecificPatterns(file, challengeNum) {
   if (file.includes("api/usersApi")) {
     return ["createApi", "fetchBaseQuery", "endpoints"];
   }
-  if (file.includes("store")) {
+  if (file.endsWith("store/store.ts")) {
     const patterns = ["reducer"];
     if (challengeNum >= 6) {
       patterns.push("middleware");

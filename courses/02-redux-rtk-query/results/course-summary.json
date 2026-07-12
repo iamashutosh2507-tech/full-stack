@@ -1,11 +1,11 @@
 {
   "courseId": "02-redux-rtk-query",
   "courseName": "Redux & RTK Query",
-  "lastUpdated": "2026-07-12T12:41:05.563Z",
+  "lastUpdated": "2026-07-12T13:05:53.614Z",
   "totalChallenges": 13,
-  "completedChallenges": 2,
-  "averageScore": 83.3,
-  "completionPercentage": 15.4,
+  "completedChallenges": 3,
+  "averageScore": 83.2,
+  "completionPercentage": 23.1,
   "badgeLevel": "none",
   "challengeResults": [
     {
@@ -19,11 +19,18 @@
       "challengeName": "First Slice with createSlice",
       "score": 83.65,
       "passed": true
+    },
+    {
+      "challengeId": "03-reading-dispatching",
+      "challengeName": "Reading and Dispatching in Components",
+      "score": 82.9,
+      "passed": true
     }
   ],
   "skillStrengths": [
     "Store Setup with configureStore",
-    "First Slice with createSlice"
+    "First Slice with createSlice",
+    "Reading and Dispatching in Components"
   ],
   "improvementAreas": []
 }
