@@ -102,6 +102,7 @@ export async function reviewCodeWithAI(challengeId, challengeMetadata, projectDi
     }
 
     // 3. Discover additional files user might have created in relevant directories
+    const requiredFiles = new Set(challengeMetadata.filesToCheck || []);
     const additionalFiles = discoverAdditionalFiles(challengeMetadata, projectDir);
     for (const file of additionalFiles) {
       // Avoid duplicates
@@ -109,6 +110,29 @@ export async function reviewCodeWithAI(challengeId, challengeMetadata, projectDi
         codeFiles.push(file);
       }
     }
+
+    // Cap total code content so the prompt stays under Groq's free-tier TPM
+    // limit even as later challenges accumulate more sibling files in the
+    // same directories. Files the challenge actually requires are always
+    // kept in full; discovered extras are trimmed or dropped once the
+    // remaining budget runs out.
+    const TOTAL_CODE_BUDGET = 6000; // characters
+    let usedChars = 0;
+    const budgetedFiles = [];
+    for (const f of codeFiles) {
+      if (requiredFiles.has(f.file)) {
+        usedChars += f.content.length;
+        budgetedFiles.push(f);
+        continue;
+      }
+      const remaining = TOTAL_CODE_BUDGET - usedChars;
+      if (remaining <= 0) continue;
+      const content = f.content.substring(0, remaining);
+      usedChars += content.length;
+      budgetedFiles.push({ file: f.file, content });
+    }
+    codeFiles.length = 0;
+    codeFiles.push(...budgetedFiles);
 
     if (codeFiles.length === 0) {
       return {
