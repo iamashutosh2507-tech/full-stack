@@ -1,13 +1,13 @@
 {
-  "lastUpdated": "2026-07-13T06:11:37.829Z",
+  "lastUpdated": "2026-07-13T06:20:25.142Z",
   "pathway": {
     "name": "Modern React Engineer",
     "version": "1.0.0",
     "overallScore": 55.1,
-    "completionPercentage": 58.5,
+    "completionPercentage": 60.4,
     "badgeLevel": "none",
     "totalChallenges": 53,
-    "completedChallenges": 31
+    "completedChallenges": 32
   },
   "courses": {
     "01-react-fundamentals": {
@@ -370,10 +370,10 @@
       "courseId": "02-redux-rtk-query",
       "courseName": "Redux & RTK Query",
       "averageScore": 83.1,
-      "completionPercentage": 61.5,
+      "completionPercentage": 69.2,
       "badgeLevel": "bronze",
       "totalChallenges": 13,
-      "completedChallenges": 8,
+      "completedChallenges": 9,
       "challenges": {
         "01-store-setup": {
           "challengeId": "01-store-setup",
@@ -486,6 +486,21 @@
           "passed": true,
           "score": 82.9,
           "lastRun": "2026-07-13T06:10:31.716Z",
+          "scores": {
+            "functionalTests": 100,
+            "codeQuality": 100,
+            "architecture": 100,
+            "bestPractices": 100,
+            "e2eTests": 0,
+            "aiReview": 86
+          }
+        },
+        "09-mutations": {
+          "challengeId": "09-mutations",
+          "challengeName": "Mutations with useMutation",
+          "passed": true,
+          "score": 82.9,
+          "lastRun": "2026-07-13T06:19:12.055Z",
           "scores": {
             "functionalTests": 100,
             "codeQuality": 100,

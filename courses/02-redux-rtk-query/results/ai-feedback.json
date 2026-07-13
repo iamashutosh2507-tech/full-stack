@@ -201,5 +201,29 @@
       "overall": "The code meets most of the functional requirements and demonstrates a good understanding of RTK Query. However, there are some areas for improvement in terms of error handling and maintainability.",
       "requirementCompliance": 90
     }
+  },
+  {
+    "challengeId": "09-mutations",
+    "challengeName": "Mutations with useMutation",
+    "aiReview": {
+      "challengeId": "09-mutations",
+      "timestamp": "2026-07-13T06:20:22.648Z",
+      "score": 86,
+      "feedback": [],
+      "strengths": [
+        "Proper use of createApi, fetchBaseQuery, and endpoints in apiSlice.ts",
+        "Correct usage of useGetUsersQuery and useGetPostsQuery in UsersList.tsx",
+        "Proper integration with store and reducer setup in apiSlice.ts"
+      ],
+      "improvements": [
+        "In apiSlice.ts, consider using a more robust error handling mechanism, such as providing a custom error type and handling it in the reducer.",
+        "In AddPostForm.tsx, consider adding a loading state indicator when submitting the form, to improve user experience.",
+        "In src/components/index.ts, consider using a more robust way to export components, such as using a single export statement or a more descriptive export name."
+      ],
+      "readability": 85,
+      "maintainability": 80,
+      "overall": "The code meets most requirements and demonstrates good understanding of RTK Query best practices. However, there are some areas for improvement, such as error handling and maintainability.",
+      "requirementCompliance": 90
+    }
   }
 ]
