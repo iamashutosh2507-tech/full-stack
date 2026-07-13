@@ -1,11 +1,11 @@
 {
   "courseId": "02-redux-rtk-query",
   "courseName": "Redux & RTK Query",
-  "lastUpdated": "2026-07-13T07:34:51.417Z",
+  "lastUpdated": "2026-07-13T07:46:26.727Z",
   "totalChallenges": 13,
-  "completedChallenges": 11,
+  "completedChallenges": 12,
   "averageScore": 83,
-  "completionPercentage": 84.6,
+  "completionPercentage": 92.3,
   "badgeLevel": "silver",
   "challengeResults": [
     {
@@ -73,6 +73,12 @@
       "challengeName": "API and Local State Together",
       "score": 82.3,
       "passed": true
+    },
+    {
+      "challengeId": "12-error-loading-ux",
+      "challengeName": "Error and Loading UX",
+      "score": 82.9,
+      "passed": true
     }
   ],
   "skillStrengths": [
@@ -86,7 +92,8 @@
     "Caching and Cache Tags",
     "Mutations with useMutation",
     "Optimistic Updates",
-    "API and Local State Together"
+    "API and Local State Together",
+    "Error and Loading UX"
   ],
   "improvementAreas": []
 }
