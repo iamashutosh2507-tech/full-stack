@@ -3621,5 +3621,297 @@
       "overall": "The code meets most requirements and demonstrates good understanding of RTK Query best practices. However, there are some areas for improvement, such as error handling and maintainability.",
       "requirementCompliance": 90
     }
+  },
+  {
+    "challengeId": "10-optimistic-updates",
+    "challengeName": "Optimistic Updates",
+    "timestamp": "2026-07-13T06:33:59.377Z",
+    "scores": {
+      "functionalTests": 100,
+      "codeQuality": 100,
+      "architecture": 100,
+      "bestPractices": 100,
+      "e2eTests": 0,
+      "aiReview": 86
+    },
+    "totalScore": 82.9,
+    "passed": true,
+    "errors": [],
+    "warnings": [],
+    "testResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 3,
+      "passedTests": 3,
+      "failedTests": 0,
+      "details": [
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 10: Optimistic Updates"
+              ],
+              "fullName": " Challenge 10: Optimistic Updates API slice mutation has onQueryStarted",
+              "status": "passed",
+              "title": "API slice mutation has onQueryStarted",
+              "duration": 5,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 10: Optimistic Updates"
+              ],
+              "fullName": " Challenge 10: Optimistic Updates optimistic update uses queryFulfilled or updateQueryData",
+              "status": "passed",
+              "title": "optimistic update uses queryFulfilled or updateQueryData",
+              "duration": 2,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 10: Optimistic Updates"
+              ],
+              "fullName": " Challenge 10: Optimistic Updates has rollback or undo on error",
+              "status": "passed",
+              "title": "has rollback or undo on error",
+              "duration": 1,
+              "failureMessages": []
+            }
+          ],
+          "startTime": 1783924453677,
+          "endTime": 1783924453685,
+          "status": "passed",
+          "message": "",
+          "name": "D:/OneDrive/Desktop/full - stack/challenge-engine-react/courses/02-redux-rtk-query/project/tests/challenge-10.test.tsx"
+        }
+      ]
+    },
+    "lintResults": {
+      "score": 100,
+      "passed": true,
+      "totalIssues": 0,
+      "errors": 0,
+      "warnings": 0,
+      "details": [
+        {
+          "filePath": "D:\\OneDrive\\Desktop\\full - stack\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\src\\api\\apiSlice.ts",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": [
+            {
+              "ruleId": "no-extra-semi",
+              "replacedBy": []
+            },
+            {
+              "ruleId": "no-mixed-spaces-and-tabs",
+              "replacedBy": []
+            }
+          ]
+        }
+      ]
+    },
+    "architectureResults": {
+      "score": 100,
+      "passed": true,
+      "patternsFound": [],
+      "patternsMissing": [],
+      "details": [
+        {
+          "file": "src/api/apiSlice.ts",
+          "patternsFound": [],
+          "patternsMissing": []
+        }
+      ]
+    },
+    "bestPracticesResults": {
+      "score": 100,
+      "passed": true,
+      "issues": [],
+      "details": [],
+      "note": "No best practices requirements specified in challenge"
+    },
+    "e2eResults": {
+      "score": 0,
+      "passed": false,
+      "totalTests": 1,
+      "passedTests": 0,
+      "failedTests": 1,
+      "details": [
+        {
+          "title": "challenge-10.spec.ts",
+          "file": "challenge-10.spec.ts",
+          "column": 0,
+          "line": 0,
+          "specs": [],
+          "suites": [
+            {
+              "title": "Challenge 10: Optimistic Updates - E2E",
+              "file": "challenge-10.spec.ts",
+              "line": 3,
+              "column": 6,
+              "specs": [
+                {
+                  "title": "should load challenge 10 page with content",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "failed",
+                          "duration": 8,
+                          "error": {
+                            "message": "Error: browserType.launch: Executable doesn't exist at C:\\Users\\iamas\\AppData\\Local\\ms-playwright\\chromium_headless_shell-1208\\chrome-headless-shell-win64\\chrome-headless-shell.exe\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝",
+                            "stack": "Error: browserType.launch: Executable doesn't exist at C:\\Users\\iamas\\AppData\\Local\\ms-playwright\\chromium_headless_shell-1208\\chrome-headless-shell-win64\\chrome-headless-shell.exe\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                          },
+                          "errors": [
+                            {
+                              "message": "Error: browserType.launch: Executable doesn't exist at C:\\Users\\iamas\\AppData\\Local\\ms-playwright\\chromium_headless_shell-1208\\chrome-headless-shell-win64\\chrome-headless-shell.exe\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-07-13T06:34:47.012Z",
+                          "annotations": [],
+                          "attachments": []
+                        },
+                        {
+                          "workerIndex": 1,
+                          "parallelIndex": 0,
+                          "status": "failed",
+                          "duration": 7,
+                          "error": {
+                            "message": "Error: browserType.launch: Executable doesn't exist at C:\\Users\\iamas\\AppData\\Local\\ms-playwright\\chromium_headless_shell-1208\\chrome-headless-shell-win64\\chrome-headless-shell.exe\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝",
+                            "stack": "Error: browserType.launch: Executable doesn't exist at C:\\Users\\iamas\\AppData\\Local\\ms-playwright\\chromium_headless_shell-1208\\chrome-headless-shell-win64\\chrome-headless-shell.exe\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                          },
+                          "errors": [
+                            {
+                              "message": "Error: browserType.launch: Executable doesn't exist at C:\\Users\\iamas\\AppData\\Local\\ms-playwright\\chromium_headless_shell-1208\\chrome-headless-shell-win64\\chrome-headless-shell.exe\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 1,
+                          "startTime": "2026-07-13T06:34:50.827Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "trace",
+                              "contentType": "application/zip",
+                              "path": "D:\\OneDrive\\Desktop\\full - stack\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\test-results\\challenge-10-Challenge-10--ffb8f-llenge-10-page-with-content-chromium-retry1\\trace.zip"
+                            }
+                          ]
+                        },
+                        {
+                          "workerIndex": 2,
+                          "parallelIndex": 0,
+                          "status": "failed",
+                          "duration": 8,
+                          "error": {
+                            "message": "Error: browserType.launch: Executable doesn't exist at C:\\Users\\iamas\\AppData\\Local\\ms-playwright\\chromium_headless_shell-1208\\chrome-headless-shell-win64\\chrome-headless-shell.exe\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝",
+                            "stack": "Error: browserType.launch: Executable doesn't exist at C:\\Users\\iamas\\AppData\\Local\\ms-playwright\\chromium_headless_shell-1208\\chrome-headless-shell-win64\\chrome-headless-shell.exe\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                          },
+                          "errors": [
+                            {
+                              "message": "Error: browserType.launch: Executable doesn't exist at C:\\Users\\iamas\\AppData\\Local\\ms-playwright\\chromium_headless_shell-1208\\chrome-headless-shell-win64\\chrome-headless-shell.exe\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 2,
+                          "startTime": "2026-07-13T06:34:54.566Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "2b6a150d93e258235d20-c73851f46778bc6eb125",
+                  "file": "challenge-10.spec.ts",
+                  "line": 8,
+                  "column": 3
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "error": "Command failed: npx playwright test \"tests/e2e/challenge-10.spec.ts\" --reporter=json"
+    },
+    "aiReviewResults": {
+      "challengeId": "10-optimistic-updates",
+      "timestamp": "2026-07-13T06:34:55.342Z",
+      "score": 86,
+      "feedback": [],
+      "strengths": [
+        "Correct implementation of optimistic updates using `onQueryStarted` and `updateQueryData`.",
+        "Proper use of `fetchBaseQuery` and `createApi` from `@reduxjs/toolkit/query/react`.",
+        "Clear separation of concerns between API endpoints and mock server implementation."
+      ],
+      "improvements": [
+        {
+          "improvement": "Consider adding a check for the `arg` parameter in `onQueryStarted` to prevent potential errors.",
+          "file": "src/api/apiSlice.ts"
+        },
+        {
+          "improvement": "The `mockApi` implementation could be improved by using a more robust mocking library or a real backend API.",
+          "file": "src/api/mockServer.ts"
+        },
+        {
+          "improvement": "Add more error handling and edge cases for the `updateQueryData` method, such as handling duplicate or invalid data.",
+          "file": "src/api/apiSlice.ts"
+        }
+      ],
+      "readability": 85,
+      "maintainability": 80,
+      "overall": "The code meets most of the functional requirements and demonstrates a good understanding of RTK Query best practices. However, there are some areas for improvement in terms of maintainability and error handling.",
+      "requirementCompliance": 90
+    },
+    "aiResults": {
+      "challengeId": "10-optimistic-updates",
+      "timestamp": "2026-07-13T06:34:55.342Z",
+      "score": 86,
+      "feedback": [],
+      "strengths": [
+        "Correct implementation of optimistic updates using `onQueryStarted` and `updateQueryData`.",
+        "Proper use of `fetchBaseQuery` and `createApi` from `@reduxjs/toolkit/query/react`.",
+        "Clear separation of concerns between API endpoints and mock server implementation."
+      ],
+      "improvements": [
+        {
+          "improvement": "Consider adding a check for the `arg` parameter in `onQueryStarted` to prevent potential errors.",
+          "file": "src/api/apiSlice.ts"
+        },
+        {
+          "improvement": "The `mockApi` implementation could be improved by using a more robust mocking library or a real backend API.",
+          "file": "src/api/mockServer.ts"
+        },
+        {
+          "improvement": "Add more error handling and edge cases for the `updateQueryData` method, such as handling duplicate or invalid data.",
+          "file": "src/api/apiSlice.ts"
+        }
+      ],
+      "readability": 85,
+      "maintainability": 80,
+      "overall": "The code meets most of the functional requirements and demonstrates a good understanding of RTK Query best practices. However, there are some areas for improvement in terms of maintainability and error handling.",
+      "requirementCompliance": 90
+    }
   }
 ]

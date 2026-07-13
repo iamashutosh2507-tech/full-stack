@@ -1,12 +1,12 @@
 {
   "courseId": "02-redux-rtk-query",
   "courseName": "Redux & RTK Query",
-  "lastUpdated": "2026-07-13T06:20:24.868Z",
+  "lastUpdated": "2026-07-13T06:34:57.357Z",
   "totalChallenges": 13,
-  "completedChallenges": 9,
+  "completedChallenges": 10,
   "averageScore": 83.1,
-  "completionPercentage": 69.2,
-  "badgeLevel": "bronze",
+  "completionPercentage": 76.9,
+  "badgeLevel": "silver",
   "challengeResults": [
     {
       "challengeId": "01-store-setup",
@@ -61,6 +61,12 @@
       "challengeName": "Mutations with useMutation",
       "score": 82.9,
       "passed": true
+    },
+    {
+      "challengeId": "10-optimistic-updates",
+      "challengeName": "Optimistic Updates",
+      "score": 82.9,
+      "passed": true
     }
   ],
   "skillStrengths": [
@@ -72,7 +78,8 @@
     "RTK Query Setup and API Slice",
     "Query Endpoints and useQuery Hooks",
     "Caching and Cache Tags",
-    "Mutations with useMutation"
+    "Mutations with useMutation",
+    "Optimistic Updates"
   ],
   "improvementAreas": []
 }

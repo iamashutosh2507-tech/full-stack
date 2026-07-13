@@ -23,6 +23,18 @@ export const apiSlice = createApi({
     addPost: builder.mutation<Post, Omit<Post, 'id'>>({
       queryFn: async (newPost) => ({ data: await mockApi.createPost(newPost) }),
       invalidatesTags: [{ type: 'Post', id: 'LIST' }],
+      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+        const patchResult = dispatch(
+          apiSlice.util.updateQueryData('getPosts', undefined, (draft) => {
+            draft.push({ ...arg, id: Date.now() })
+          })
+        )
+        try {
+          await queryFulfilled
+        } catch {
+          patchResult.undo()
+        }
+      },
     }),
   }),
 })
