@@ -1,13 +1,13 @@
 {
-  "lastUpdated": "2026-07-13T06:00:29.405Z",
+  "lastUpdated": "2026-07-13T06:11:37.829Z",
   "pathway": {
     "name": "Modern React Engineer",
     "version": "1.0.0",
     "overallScore": 55.1,
-    "completionPercentage": 56.6,
+    "completionPercentage": 58.5,
     "badgeLevel": "none",
     "totalChallenges": 53,
-    "completedChallenges": 30
+    "completedChallenges": 31
   },
   "courses": {
     "01-react-fundamentals": {
@@ -369,11 +369,11 @@
     "02-redux-rtk-query": {
       "courseId": "02-redux-rtk-query",
       "courseName": "Redux & RTK Query",
-      "averageScore": 83.2,
-      "completionPercentage": 53.8,
+      "averageScore": 83.1,
+      "completionPercentage": 61.5,
       "badgeLevel": "bronze",
       "totalChallenges": 13,
-      "completedChallenges": 7,
+      "completedChallenges": 8,
       "challenges": {
         "01-store-setup": {
           "challengeId": "01-store-setup",
@@ -478,6 +478,21 @@
             "bestPractices": 100,
             "e2eTests": 0,
             "aiReview": 81
+          }
+        },
+        "08-caching-refetch": {
+          "challengeId": "08-caching-refetch",
+          "challengeName": "Caching and Cache Tags",
+          "passed": true,
+          "score": 82.9,
+          "lastRun": "2026-07-13T06:10:31.716Z",
+          "scores": {
+            "functionalTests": 100,
+            "codeQuality": 100,
+            "architecture": 100,
+            "bestPractices": 100,
+            "e2eTests": 0,
+            "aiReview": 86
           }
         }
       }

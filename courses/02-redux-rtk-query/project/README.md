@@ -57,12 +57,12 @@ npm run review -- --challenge=01-store-setup
 
 ## 📊 Progress Evidence
 
-*Auto-updated when you run review. Last run: 13/7/2026, 11:30:29 am*
+*Auto-updated when you run review. Last run: 13/7/2026, 11:41:37 am*
 
 | Metric | Value |
 |--------|-------|
-| Challenges completed | 7 / 13 (53.8%) |
-| Average score | 83.2% |
+| Challenges completed | 8 / 13 (61.5%) |
+| Average score | 83.1% |
 
 | Challenge | Skills covered | Status |
 |-----------|----------------|--------|
@@ -73,7 +73,7 @@ npm run review -- --challenge=01-store-setup
 | Async Logic with createAsyncThunk | Redux Toolkit, createAsyncThunk, extraReducers, pending/fulfilled/rejected | Passed |
 | RTK Query Setup and API Slice | RTK Query, createApi, fetchBaseQuery, API reducer and middleware | Passed |
 | Query Endpoints and useQuery Hooks | RTK Query, useGetUsersQuery, loading, error, data | Passed |
-| Caching and Cache Tags | RTK Query, providesTags, invalidatesTags, cache invalidation | — |
+| Caching and Cache Tags | RTK Query, providesTags, invalidatesTags, cache invalidation | Passed |
 | Mutations with useMutation | RTK Query, builder.mutation, useMutation, POST/PUT/DELETE | — |
 | Optimistic Updates | RTK Query, optimistic updates, onQueryStarted, rollback | — |
 | API and Local State Together | Redux, RTK Query, slice + API in one store, filtering/sorting | — |

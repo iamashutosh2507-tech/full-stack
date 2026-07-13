@@ -1,11 +1,11 @@
 {
   "courseId": "02-redux-rtk-query",
   "courseName": "Redux & RTK Query",
-  "lastUpdated": "2026-07-13T06:00:29.162Z",
+  "lastUpdated": "2026-07-13T06:11:37.574Z",
   "totalChallenges": 13,
-  "completedChallenges": 7,
-  "averageScore": 83.2,
-  "completionPercentage": 53.8,
+  "completedChallenges": 8,
+  "averageScore": 83.1,
+  "completionPercentage": 61.5,
   "badgeLevel": "bronze",
   "challengeResults": [
     {
@@ -49,6 +49,12 @@
       "challengeName": "Query Endpoints and useQuery Hooks",
       "score": 82.15,
       "passed": true
+    },
+    {
+      "challengeId": "08-caching-refetch",
+      "challengeName": "Caching and Cache Tags",
+      "score": 82.9,
+      "passed": true
     }
   ],
   "skillStrengths": [
@@ -58,7 +64,8 @@
     "Multiple Slices in the Store",
     "Async Logic with createAsyncThunk",
     "RTK Query Setup and API Slice",
-    "Query Endpoints and useQuery Hooks"
+    "Query Endpoints and useQuery Hooks",
+    "Caching and Cache Tags"
   ],
   "improvementAreas": []
 }
