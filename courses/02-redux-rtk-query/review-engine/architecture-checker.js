@@ -1,7 +1,12 @@
 import { readFileSync, existsSync } from 'fs';
 import { join } from 'path';
 import { parse } from '@babel/parser';
-import traverse from '@babel/traverse';
+import _traverse from '@babel/traverse';
+
+// Node's CJS/ESM interop can resolve @babel/traverse's default export to the
+// module namespace object instead of the traverse function, depending on
+// how the installed version marks __esModule. Unwrap defensively.
+const traverse = typeof _traverse === 'function' ? _traverse : _traverse.default;
 
 /**
  * File-specific pattern rules

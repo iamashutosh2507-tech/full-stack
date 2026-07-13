@@ -93,7 +93,7 @@ export async function reviewCodeWithAI(challengeId, challengeMetadata, projectDi
         if (CODE_EXTENSIONS.includes(extname(fullPath)) && content.trim().length > 0) {
           codeFiles.push({
             file: filePath,
-            content: content.substring(0, 8000) // Limit to 8KB per file
+            content: content.substring(0, 4000) // Limit per file to stay under Groq's free-tier TPM cap
           });
         }
       } else {
@@ -185,7 +185,7 @@ function discoverAdditionalFiles(challengeMetadata, projectDir) {
                   if (content.trim().length > 0) {
                     additionalFiles.push({
                       file: relativePath,
-                      content: content.substring(0, 8000)
+                      content: content.substring(0, 4000)
                     });
                   }
                 } catch (e) {
@@ -224,12 +224,12 @@ function buildReviewPrompt(challengeId, challengeMetadata, instructions, require
 
   // Build requirements summary
   const requirementsSummary = requirements
-    ? `\n\n## Technical Requirements:\n${requirements.substring(0, 2000)}`
+    ? `\n\n## Technical Requirements:\n${requirements.substring(0, 1500)}`
     : '';
 
   // Build instructions summary
   const instructionsSummary = instructions
-    ? `\n\n## Challenge Instructions:\n${instructions.substring(0, 3000)}`
+    ? `\n\n## Challenge Instructions:\n${instructions.substring(0, 2000)}`
     : '';
 
   return `You are an expert RTK Query, Redux Toolkit, and TypeScript code reviewer. Review the following implementation for challenge "${challengeName}" (${challengeId}).
@@ -309,7 +309,7 @@ async function callGroqAPI(prompt) {
         }
       ],
       temperature: 0.3,
-      max_tokens: 2500 // Increased for more detailed feedback
+      max_tokens: 1800 // Kept under Groq's free-tier 6000 TPM cap alongside prompt size; JSON-repair parsing covers any truncation
     })
   });
 

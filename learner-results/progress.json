@@ -1,13 +1,13 @@
 {
-  "lastUpdated": "2026-07-13T05:21:05.492Z",
+  "lastUpdated": "2026-07-13T06:00:29.405Z",
   "pathway": {
     "name": "Modern React Engineer",
     "version": "1.0.0",
     "overallScore": 55.1,
-    "completionPercentage": 54.7,
+    "completionPercentage": 56.6,
     "badgeLevel": "none",
     "totalChallenges": 53,
-    "completedChallenges": 29
+    "completedChallenges": 30
   },
   "courses": {
     "01-react-fundamentals": {
@@ -369,11 +369,11 @@
     "02-redux-rtk-query": {
       "courseId": "02-redux-rtk-query",
       "courseName": "Redux & RTK Query",
-      "averageScore": 83.3,
-      "completionPercentage": 46.2,
-      "badgeLevel": "none",
+      "averageScore": 83.2,
+      "completionPercentage": 53.8,
+      "badgeLevel": "bronze",
       "totalChallenges": 13,
-      "completedChallenges": 6,
+      "completedChallenges": 7,
       "challenges": {
         "01-store-setup": {
           "challengeId": "01-store-setup",
@@ -463,6 +463,21 @@
             "bestPractices": 100,
             "e2eTests": 0,
             "aiReview": 86
+          }
+        },
+        "07-queries": {
+          "challengeId": "07-queries",
+          "challengeName": "Query Endpoints and useQuery Hooks",
+          "passed": true,
+          "score": 82.15,
+          "lastRun": "2026-07-13T05:59:13.604Z",
+          "scores": {
+            "functionalTests": 100,
+            "codeQuality": 100,
+            "architecture": 100,
+            "bestPractices": 100,
+            "e2eTests": 0,
+            "aiReview": 81
           }
         }
       }
