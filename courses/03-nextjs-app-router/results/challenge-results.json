@@ -1,1 +1,361 @@
-[]
+[
+  {
+    "challengeId": "01-app-router-pages-layout",
+    "challengeName": "App Router, Pages, and Layout",
+    "timestamp": "2026-07-28T07:59:44.298Z",
+    "scores": {
+      "functionalTests": 100,
+      "codeQuality": 100,
+      "architecture": 75,
+      "bestPractices": 100,
+      "e2eTests": 100,
+      "aiReview": 93
+    },
+    "totalScore": 96.45,
+    "passed": true,
+    "errors": [],
+    "warnings": [],
+    "testResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 5,
+      "passedTests": 5,
+      "failedTests": 0,
+      "details": [
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 01: App Router, Pages, and Layout"
+              ],
+              "fullName": " Challenge 01: App Router, Pages, and Layout should have app/page.tsx",
+              "status": "passed",
+              "title": "should have app/page.tsx",
+              "duration": 4,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 01: App Router, Pages, and Layout"
+              ],
+              "fullName": " Challenge 01: App Router, Pages, and Layout should have app/about/page.tsx",
+              "status": "passed",
+              "title": "should have app/about/page.tsx",
+              "duration": 3,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 01: App Router, Pages, and Layout"
+              ],
+              "fullName": " Challenge 01: App Router, Pages, and Layout should use Server Components (no use client)",
+              "status": "passed",
+              "title": "should use Server Components (no use client)",
+              "duration": 2,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 01: App Router, Pages, and Layout"
+              ],
+              "fullName": " Challenge 01: App Router, Pages, and Layout should use Next.js Link component",
+              "status": "passed",
+              "title": "should use Next.js Link component",
+              "duration": 5,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 01: App Router, Pages, and Layout"
+              ],
+              "fullName": " Challenge 01: App Router, Pages, and Layout should have proper App Router structure",
+              "status": "passed",
+              "title": "should have proper App Router structure",
+              "duration": 2,
+              "failureMessages": []
+            }
+          ],
+          "startTime": 1785225593370,
+          "endTime": 1785225593386,
+          "status": "passed",
+          "message": "",
+          "name": "D:/OneDrive/Desktop/full - stack/challenge-engine-react/courses/03-nextjs-app-router/project/tests/challenge-01.test.tsx"
+        }
+      ]
+    },
+    "lintResults": {
+      "score": 100,
+      "passed": true,
+      "totalIssues": 0,
+      "errors": 0,
+      "warnings": 0,
+      "details": [
+        {
+          "filePath": "D:\\OneDrive\\Desktop\\full - stack\\challenge-engine-react\\courses\\03-nextjs-app-router\\project\\app\\about\\page.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": []
+        },
+        {
+          "filePath": "D:\\OneDrive\\Desktop\\full - stack\\challenge-engine-react\\courses\\03-nextjs-app-router\\project\\app\\layout.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": []
+        },
+        {
+          "filePath": "D:\\OneDrive\\Desktop\\full - stack\\challenge-engine-react\\courses\\03-nextjs-app-router\\project\\app\\page.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": []
+        }
+      ]
+    },
+    "architectureResults": {
+      "score": 75,
+      "passed": false,
+      "patternsFound": [
+        "serverComponent",
+        "Link",
+        "fileBasedRouting",
+        "appDirectory",
+        "serverComponent",
+        "Link",
+        "fileBasedRouting",
+        "appDirectory",
+        "appDirectory"
+      ],
+      "patternsMissing": [
+        "serverComponent",
+        "Link",
+        "fileBasedRouting"
+      ],
+      "details": [
+        {
+          "file": "app/page.tsx",
+          "patternsFound": [
+            "serverComponent",
+            "Link",
+            "fileBasedRouting",
+            "appDirectory"
+          ],
+          "patternsMissing": []
+        },
+        {
+          "file": "app/about/page.tsx",
+          "patternsFound": [
+            "serverComponent",
+            "Link",
+            "fileBasedRouting",
+            "appDirectory"
+          ],
+          "patternsMissing": []
+        },
+        {
+          "file": "app/layout.tsx",
+          "patternsFound": [
+            "appDirectory"
+          ],
+          "patternsMissing": [
+            "serverComponent",
+            "Link",
+            "fileBasedRouting"
+          ]
+        }
+      ]
+    },
+    "bestPracticesResults": {
+      "score": 100,
+      "passed": true,
+      "issues": [],
+      "details": [],
+      "note": "No best practices requirements specified in challenge"
+    },
+    "e2eResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 3,
+      "passedTests": 3,
+      "failedTests": 0,
+      "details": [
+        {
+          "title": "challenge-01.spec.ts",
+          "file": "challenge-01.spec.ts",
+          "column": 0,
+          "line": 0,
+          "specs": [],
+          "suites": [
+            {
+              "title": "Challenge 01: App Router, Pages, and Layout - E2E",
+              "file": "challenge-01.spec.ts",
+              "line": 7,
+              "column": 6,
+              "specs": [
+                {
+                  "title": "should display home page",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 6672,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-07-28T08:00:40.846Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "77d07a436f655ce05c79-377bcbe80bc7e79b67fe",
+                  "file": "challenge-01.spec.ts",
+                  "line": 12,
+                  "column": 7
+                },
+                {
+                  "title": "should have link to about and navigate to about page",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 17022,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-07-28T08:00:48.754Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "77d07a436f655ce05c79-ced3a0064b6790158cff",
+                  "file": "challenge-01.spec.ts",
+                  "line": 16,
+                  "column": 7
+                },
+                {
+                  "title": "should have at least one navigation link",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 1580,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-07-28T08:01:05.819Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "77d07a436f655ce05c79-bbb426c2731df9bd6414",
+                  "file": "challenge-01.spec.ts",
+                  "line": 24,
+                  "column": 7
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "screenshots": []
+    },
+    "aiReviewResults": {
+      "challengeId": "01-app-router-pages-layout",
+      "timestamp": "2026-07-28T08:01:09.643Z",
+      "score": 93,
+      "feedback": [],
+      "strengths": [
+        "The code is well-structured and follows the Next.js guidelines for App Router projects.",
+        "The use of TypeScript and ESLint ensures a high level of code quality and maintainability.",
+        "The navigation between pages is implemented correctly using the `Link` component from `next/link`."
+      ],
+      "improvements": [
+        "In the `app/layout.tsx` file, consider adding a `title` tag to the `html` element to provide a more complete metadata for the page.",
+        "In the `app/page.tsx` and `app/about/page.tsx` files, consider adding a `className` attribute to the `main` element to apply styles from the `globals.css` file.",
+        "In the `app/about/page.tsx` file, consider adding a `rel` attribute to the `Link` component to specify the relationship between the current document and the linked document."
+      ],
+      "readability": 95,
+      "maintainability": 90,
+      "overall": "The code is well-structured and follows the Next.js guidelines for App Router projects. It demonstrates a good understanding of the App Router architecture and the use of TypeScript and ESLint for code quality and maintainability. With a few minor improvements, the code can be considered complete and ready for the next challenge."
+    },
+    "aiResults": {
+      "challengeId": "01-app-router-pages-layout",
+      "timestamp": "2026-07-28T08:01:09.643Z",
+      "score": 93,
+      "feedback": [],
+      "strengths": [
+        "The code is well-structured and follows the Next.js guidelines for App Router projects.",
+        "The use of TypeScript and ESLint ensures a high level of code quality and maintainability.",
+        "The navigation between pages is implemented correctly using the `Link` component from `next/link`."
+      ],
+      "improvements": [
+        "In the `app/layout.tsx` file, consider adding a `title` tag to the `html` element to provide a more complete metadata for the page.",
+        "In the `app/page.tsx` and `app/about/page.tsx` files, consider adding a `className` attribute to the `main` element to apply styles from the `globals.css` file.",
+        "In the `app/about/page.tsx` file, consider adding a `rel` attribute to the `Link` component to specify the relationship between the current document and the linked document."
+      ],
+      "readability": 95,
+      "maintainability": 90,
+      "overall": "The code is well-structured and follows the Next.js guidelines for App Router projects. It demonstrates a good understanding of the App Router architecture and the use of TypeScript and ESLint for code quality and maintainability. With a few minor improvements, the code can be considered complete and ready for the next challenge."
+    }
+  }
+]

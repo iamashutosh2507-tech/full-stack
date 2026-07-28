@@ -44,5 +44,5 @@ Pass threshold: weighted score ≥ 80%.
 ## Verify and submit
 
 - `npm run dev` → open `/` and `/about`, confirm the About and Home links work.
-- From the project folder: `npm run review -- --challenge=01-app-router-pages-layout`
+- From the project folder: `dev`
 - Pass threshold: weighted score ≥ 80%. Then move to challenge 02.

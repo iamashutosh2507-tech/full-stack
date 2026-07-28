@@ -1,7 +1,8 @@
 import { readFileSync, existsSync } from 'fs';
 import { join } from 'path';
 import { parse } from '@babel/parser';
-import traverse from '@babel/traverse';
+import pkg from '@babel/traverse';
+const traverse = pkg.default || pkg;
 
 /**
  * Checks architecture patterns using AST parsing
@@ -98,13 +99,19 @@ function checkFileForPatterns(content, patternsRequired, fileName) {
         }
       },
 
-      // Check for Server Component (no 'use client')
+      // Check for Server Component (no 'use client'), app directory structure, and file-based routing
       Program(path) {
         const hasUseClient = path.node.directives?.some(
           d => d.value.value === 'use client'
         );
         if (!hasUseClient && fileName.includes('page.tsx')) {
           foundPatterns.add('serverComponent');
+        }
+        if (fileName.includes('app/')) {
+          foundPatterns.add('appDirectory');
+        }
+        if (fileName.includes('page.tsx')) {
+          foundPatterns.add('fileBasedRouting');
         }
       },
 
@@ -118,10 +125,13 @@ function checkFileForPatterns(content, patternsRequired, fileName) {
         }
       },
 
-      // Check for async component (Server Component data fetching)
+      // Check for async component and Server Actions
       FunctionDeclaration(path) {
         if (path.node.async) {
           foundPatterns.add('asyncComponent');
+          if (path.node.id?.name?.includes('action') || content.includes('use server')) {
+            foundPatterns.add('serverAction');
+          }
         }
       },
 
@@ -151,7 +161,7 @@ function checkFileForPatterns(content, patternsRequired, fileName) {
         if (path.node.callee.name === 'NextResponse') {
           foundPatterns.add('apiRoute');
         }
-        if (path.node.callee.object && 
+        if (path.node.callee.object &&
             path.node.callee.object.name === 'Response' &&
             path.node.callee.property &&
             path.node.callee.property.name === 'json') {
@@ -159,29 +169,10 @@ function checkFileForPatterns(content, patternsRequired, fileName) {
         }
       },
 
-      // Check for Server Actions
-      FunctionDeclaration(path) {
-        if (path.node.async && 
-            (path.node.id?.name?.includes('action') || 
-             content.includes('use server'))) {
-          foundPatterns.add('serverAction');
-        }
-      },
-
       // Check for form handling
       JSXElement(path) {
         if (path.node.openingElement.name.name === 'form') {
           foundPatterns.add('formHandling');
-        }
-      },
-
-      // Check for app directory structure
-      Program(path) {
-        if (fileName.includes('app/')) {
-          foundPatterns.add('appDirectory');
-        }
-        if (fileName.includes('page.tsx')) {
-          foundPatterns.add('fileBasedRouting');
         }
       }
     });
