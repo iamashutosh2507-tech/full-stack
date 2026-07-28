@@ -156,7 +156,7 @@ function checkFileForPatterns(content, patternsRequired, fileName) {
         });
       },
 
-      // Check for API route (route.ts)
+      // Check for API route (route.ts) and React hooks
       CallExpression(path) {
         if (path.node.callee.name === 'NextResponse') {
           foundPatterns.add('apiRoute');
@@ -166,6 +166,12 @@ function checkFileForPatterns(content, patternsRequired, fileName) {
             path.node.callee.property &&
             path.node.callee.property.name === 'json') {
           foundPatterns.add('apiRoute');
+        }
+        if (path.node.callee.name === 'useState') {
+          foundPatterns.add('useState');
+        }
+        if (path.node.callee.name === 'useEffect') {
+          foundPatterns.add('useEffect');
         }
       },
 

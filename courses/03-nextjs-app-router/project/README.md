@@ -64,17 +64,17 @@ npm run review -- --challenge=01-app-router-pages-layout
 
 ## 📊 Progress Evidence
 
-*Auto-updated when you run review. Last run: 28/7/2026, 1:31:11 pm*
+*Auto-updated when you run review. Last run: 28/7/2026, 2:16:39 pm*
 
 | Metric | Value |
 |--------|-------|
-| Challenges completed | 1 / 17 (5.9%) |
-| Average score | 96.5% |
+| Challenges completed | 2 / 17 (11.8%) |
+| Average score | 94.4% |
 
 | Challenge | Skills covered | Status |
 |-----------|----------------|--------|
 | App Router, Pages, and Layout | Next.js App Router, File-based Routing, Link Component, Layout, Page Structure | Passed |
-| Server and Client Components | Server Components, Client Components, 'use client', useState, Event handlers | — |
+| Server and Client Components | Server Components, Client Components, 'use client', useState, Event handlers | Passed |
 | Data Fetching in Server Components | Async Server Components, fetch, Data fetching, Server-side data | — |
 | API Route Handlers | Route Handlers, app/api, GET, POST, Response.json | — |
 | Loading and Streaming | loading.tsx, Streaming, Suspense, Loading UI | — |

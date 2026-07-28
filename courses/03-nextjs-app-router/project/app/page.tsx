@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import ChallengeList from './components/ChallengeList'
+import Counter from './components/Counter'
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
           <Link href="/about">About</Link>
         </p>
       </header>
+      <Counter />
       <ChallengeList />
     </main>
   )
